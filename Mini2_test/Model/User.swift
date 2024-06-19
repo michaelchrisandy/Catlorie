@@ -26,7 +26,7 @@ class User: Identifiable {
         self.targetProtein = targetProtein
         self.targetFat = targetFat
 //        self.dailyNutrition = dailyNutrition
-//        self.catId = cat
+//        self.cat = cat
     }
     
     static func dummyData() -> User {

@@ -11,10 +11,15 @@ import SwiftUI
 struct Mini2_testApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(user: User.dummyData())
+            ContentView()
         }
         .modelContainer(for:
-            User.self
+            [
+                User.self,
+                Cat.self,
+                DailyNutrition.self,
+                Badge.self
+            ]
         )
     }
 }

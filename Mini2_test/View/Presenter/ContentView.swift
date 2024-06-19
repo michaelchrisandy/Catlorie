@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
     
-    @Environment(\.modelContext) var modelContext
-    @State var user: User
+
     
     var body: some View {
         
@@ -35,12 +33,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: User.self, Cat.self, DailyNutrition.self, Badge.self, configurations: config)
-    
-    let user = User.dummyData()
-    return ContentView(user: user)
-        .modelContainer(container)
+    ContentView()
 }
 
 

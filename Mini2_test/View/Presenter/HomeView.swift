@@ -10,8 +10,7 @@ import SwiftData
 
 struct HomeView: View {
     
-    @Environment(\.modelContext) var modelContext
-    @State var user: User
+    @State var user: User?
     @State private var progress = 0.5
     
     var body: some View {
@@ -61,12 +60,7 @@ struct HomeView: View {
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: User.self, configurations: config)
-    
-    let user = User.dummyData()
-    return HomeView(user: user)
-        .modelContainer(container)
+    HomeView()
 }
 
 struct ExtractedView: View {
