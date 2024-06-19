@@ -16,8 +16,8 @@ class User: Identifiable {
     var targetCarbohydrates: Float?
     var targetProtein: Float?
     var targetFat: Float?
-//    var dailyNutrition: [DailyNutrition]? = []
-//    var cat: Cat?
+    var dailyNutrition: [DailyNutrition]? = []
+    var cat: Cat?
     
     init(id: UUID = UUID(), name: String, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float) {
         self.name = name
@@ -26,7 +26,7 @@ class User: Identifiable {
         self.targetProtein = targetProtein
         self.targetFat = targetFat
 //        self.dailyNutrition = dailyNutrition
-//        self.cat = cat
+//        self.catId = cat
     }
     
     static func dummyData() -> User {
