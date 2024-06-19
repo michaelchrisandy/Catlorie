@@ -16,8 +16,7 @@ class Badge: Identifiable {
     var desc: String?
     var image: String?
     
-    init(id: UUID, name: String, desc: String, image: String) {
-        self.id = id
+    init(name: String, desc: String, image: String) {
         self.name = name
         self.desc = desc
         self.image = image

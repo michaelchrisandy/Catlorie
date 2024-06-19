@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     
+    @Environment(\.modelContext) var modelContext
+    @State var user: User
     @State private var progress = 0.5
     
     var body: some View {
         
         VStack {
             ExtractedView()
-            
             
             ProgressView(value: progress) {
                 HStack {
@@ -39,16 +41,16 @@ struct HomeView: View {
                     .offset(y: 80)
                 
                 CircularProgressView(percentage: 0.6, category: "A")
-                                    .frame(width: 70)
-                                    .offset(x: -140, y: -120)
-                                
-                                CircularProgressView(percentage: 0.8, category: "B")
-                                    .frame(width: 70)
-                                    .offset(y: -180)
-                                
-                                CircularProgressView(percentage: 0.4, category: "C")
-                                    .frame(width: 70)
-                                    .offset(x: 140, y: -120)
+                    .frame(width: 70)
+                    .offset(x: -140, y: -120)
+                
+                CircularProgressView(percentage: 0.8, category: "B")
+                    .frame(width: 70)
+                    .offset(y: -180)
+                
+                CircularProgressView(percentage: 0.4, category: "C")
+                    .frame(width: 70)
+                    .offset(x: 140, y: -120)
             }
             .padding()
             
@@ -59,7 +61,12 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: User.self, configurations: config)
+    
+    let user = User.dummyData()
+    return HomeView(user: user)
+        .modelContainer(container)
 }
 
 struct ExtractedView: View {

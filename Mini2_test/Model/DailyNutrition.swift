@@ -1,28 +1,48 @@
+////
+////  DailyNutrition.swift
+////  Mini2_test
+////
+////  Created by Jonathan Aaron Wibawa on 19/06/24.
+////
 //
-//  DailyNutrition.swift
-//  Mini2_test
+//import Foundation
+//import SwiftData
 //
-//  Created by Jonathan Aaron Wibawa on 19/06/24.
-//
-
-import Foundation
-import SwiftData
-
-@Model
-class DailyNutrition: Identifiable {
-    var id: UUID = UUID()
-    var date: Date?
-    var calories: Float?
-    var protein: Float?
-    var carbohydrates: Float?
-    var fat: Float?
-    
-    init(id: UUID, date: Date, calories: Float, protein: Float, carbohydrates: Float, fat: Float) {
-        self.id = id
-        self.date = date
-        self.calories = calories
-        self.protein = protein
-        self.carbohydrates = carbohydrates
-        self.fat = fat
-    }
-}
+//@Model
+//class DailyNutrition: Identifiable {
+//    var id: UUID = UUID()
+//    var date: Date?
+//    var calories: Float?
+//    var protein: Float?
+//    var carbohydrates: Float?
+//    var fat: Float?
+//    
+//    init(date: Date, calories: Float, protein: Float, carbohydrates: Float, fat: Float) {
+//        self.date = date
+//        self.calories = calories
+//        self.protein = protein
+//        self.carbohydrates = carbohydrates
+//        self.fat = fat
+//    }
+//    
+//    static func dummyData() -> [DailyNutrition] {
+//        return [
+//            DailyNutrition(date: Date(), 
+//                           calories: 1800,
+//                           protein: 60,
+//                           carbohydrates: 200,
+//                           fat: 50),
+//            DailyNutrition(date: 
+//                            Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
+//                           calories: 2200,
+//                           protein: 80,
+//                           carbohydrates: 250,
+//                           fat: 70),
+//            DailyNutrition(date: Calendar.current.date(byAdding: .day, value: -2, to: Date())!, 
+//                           calories: 1500,
+//                           protein: 55,
+//                           carbohydrates: 150,
+//                           fat: 45)
+//        ]
+//    }
+//}

@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    
+    @Environment(\.modelContext) var modelContext
+    @State var user: User
     
     var body: some View {
         
         VStack {
             TabView {
-                HomeView()
+                HomeView(user: User.dummyData())
                     .tabItem {
                         Label("", systemImage: "house.fill")
                     }
@@ -31,7 +35,12 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: User.self, configurations: config)
+    
+    let user = User.dummyData()
+    return ContentView(user: user)
+        .modelContainer(container)
 }
 
 

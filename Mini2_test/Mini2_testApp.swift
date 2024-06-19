@@ -11,7 +11,10 @@ import SwiftUI
 struct Mini2_testApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(user: User.dummyData())
         }
+        .modelContainer(for:
+            User.self
+        )
     }
 }
