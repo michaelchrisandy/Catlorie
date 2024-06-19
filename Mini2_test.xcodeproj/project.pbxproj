@@ -90,12 +90,12 @@
 			isa = PBXGroup;
 			children = (
 				DC03E70C2C21E2E800E6D022 /* Component */,
-				DC03E70B2C21E2D500E6D022 /* Presenters */,
+				DC03E70B2C21E2D500E6D022 /* Presenter */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		DC03E70B2C21E2D500E6D022 /* Presenters */ = {
+		DC03E70B2C21E2D500E6D022 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				DC03E7042C21C2D400E6D022 /* NutritionTargetView.swift */,
@@ -103,7 +103,7 @@
 				DC03E7072C21D18D00E6D022 /* NutritionTargetTextView.swift */,
 				DC03E7092C21DAD200E6D022 /* HomeView.swift */,
 			);
-			path = Presenters;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		DC03E70C2C21E2E800E6D022 /* Component */ = {
