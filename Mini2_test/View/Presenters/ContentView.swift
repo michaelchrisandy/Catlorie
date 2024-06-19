@@ -35,9 +35,4 @@ struct ContentView: View {
 }
 
 
-/*
- notes:
- 1. gmn cara input food nya? kalo pake btn yg di tabbar trus gmn balik ke page home
- 2. lebi suka input pk textfield
- 3. icon badge
-*/
+
