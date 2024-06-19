@@ -8,16 +8,18 @@
 import Foundation
 import SwiftData
 
+
+@Model
 class Badge: Identifiable {
     var id: UUID = UUID()
-    var name: String
-    var description: String
-    var image: String
+    var name: String?
+    var desc: String?
+    var image: String?
     
-    init(id: UUID, name: String, description: String, image: String) {
+    init(id: UUID, name: String, desc: String, image: String) {
         self.id = id
         self.name = name
-        self.description = description
+        self.desc = desc
         self.image = image
     }
 }

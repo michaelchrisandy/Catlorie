@@ -11,10 +11,10 @@ import SwiftData
 @Model
 class Cat: Identifiable {
     var id: UUID = UUID()
-    var name: String
-    var image: String
-    var weight: Float
-    var badges: [Badge] = []
+    var name: String?
+    var image: String?
+    var weight: Float?
+    var badges: [Badge]? 
     
     init(id: UUID, name: String, image: String, weight: Float, badges: [Badge]){
         self.name = name

@@ -11,13 +11,13 @@ import Foundation
 @Model
 class User: Identifiable {
     var id: UUID = UUID()
-    var name: String
-    var targetCalories: Float
-    var targetCarbohydrates: Float
-    var targetProtein: Float
-    var targetFat: Float
-    var dailyNutrition: [DailyNutrition] = []
-    var cat: Cat
+    var name: String?
+    var targetCalories: Float?
+    var targetCarbohydrates: Float?
+    var targetProtein: Float?
+    var targetFat: Float?
+    var dailyNutrition: [DailyNutrition]? = []
+    var cat: Cat?
     
     init(id: UUID, name: String, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float, dailyNutrition: [DailyNutrition], cat: Cat) {
         self.id = id

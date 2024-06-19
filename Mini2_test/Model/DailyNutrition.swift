@@ -8,13 +8,14 @@
 import Foundation
 import SwiftData
 
+@Model
 class DailyNutrition: Identifiable {
     var id: UUID = UUID()
-    var date: Date
-    var calories: Float
-    var protein: Float
-    var carbohydrates: Float
-    var fat: Float
+    var date: Date?
+    var calories: Float?
+    var protein: Float?
+    var carbohydrates: Float?
+    var fat: Float?
     
     init(id: UUID, date: Date, calories: Float, protein: Float, carbohydrates: Float, fat: Float) {
         self.id = id
