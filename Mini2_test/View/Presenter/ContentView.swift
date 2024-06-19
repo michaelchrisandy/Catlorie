@@ -9,13 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-
-    
     var body: some View {
         
         VStack {
             TabView {
-                HomeView(user: User.dummyData())
+                HomeView()
                     .tabItem {
                         Label("", systemImage: "house.fill")
                     }
@@ -34,6 +32,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .preferredColorScheme(.light)
 }
 
 

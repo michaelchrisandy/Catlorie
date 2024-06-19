@@ -13,13 +13,10 @@ struct Mini2_testApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for:
-            [
-                User.self,
-                Cat.self,
-                DailyNutrition.self,
-                Badge.self
-            ]
+        .modelContainer(for: [User.self,
+                              Cat.self,
+                              DailyNutrition.self,
+                              Badge.self]
         )
     }
 }

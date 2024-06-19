@@ -14,17 +14,12 @@ class Cat: Identifiable {
     var name: String?
     var image: String?
     var weight: Float?
-    var badges: [Badge]?
-    
-    init(name: String, image: String, weight: Float, badges: [Badge]? = nil){
+    var badges = [Badge]()
+
+    init(name: String, image: String, weight: Float){
         self.name = name
         self.image = image
         self.weight = weight
-        self.badges = badges
-    }
-    
-    static func dummyData() -> Cat {
-        return Cat(name: "hose", image: "catpic", weight: 16)
     }
 }
 

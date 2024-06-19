@@ -10,7 +10,8 @@ import SwiftData
 
 struct HomeView: View {
     
-    @State var user: User?
+    @Environment(\.modelContext) var modelContext
+    @Query var user: [User]
     @State private var progress = 0.5
     
     var body: some View {
@@ -56,11 +57,53 @@ struct HomeView: View {
             Spacer()
         }
         .padding()
+        .onAppear{
+            if user.isEmpty {
+                addSampleData()
+                print(user[0].dailyNutrition[0].calories)
+            }
+            else {
+                print("ga kosong ni brok")
+            }
+        }
+    }
+    
+    func addSampleData(){
+        let user = User(name: "Aaron",
+                        targetCalories: 2000,
+                        targetCarbohydrates: 225,
+                        targetProtein: 65,
+                        targetFat: 45
+        )
+        
+        modelContext.insert(user)
+        
+        user.dailyNutrition.append(DailyNutrition(date: Date(),
+                                                  calories: 1800,
+                                                  protein: 60,
+                                                  carbohydrates: 200,
+                                                  fat: 50)
+        )
+        user.dailyNutrition.append(DailyNutrition(date:
+                                                    Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
+                                                  calories: 2200,
+                                                  protein: 80,
+                                                  carbohydrates: 250,
+                                                  fat: 70)
+        )
+        user.dailyNutrition.append(DailyNutrition(date: 
+                                                    Calendar.current.date(byAdding: .day, value: -2, to: Date())!,
+                                                  calories: 1500,
+                                                  protein: 55,
+                                                  carbohydrates: 150,
+                                                  fat: 45)
+        )
     }
 }
 
 #Preview {
     HomeView()
+        .preferredColorScheme(.light)
 }
 
 struct ExtractedView: View {
