@@ -16,27 +16,15 @@ class User: Identifiable {
     var targetCarbohydrates: Float?
     var targetProtein: Float?
     var targetFat: Float?
-    var dailyNutrition: [DailyNutrition]? = []
-    var cat: Cat?
+    @Relationship(deleteRule: .cascade) var dailyNutrition = [DailyNutrition]()
+    @Relationship(deleteRule: .cascade) var cat: Cat
     
-    init(id: UUID = UUID(), name: String, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float) {
+    init(id: UUID = UUID(), name: String, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float, cat: Cat) {
         self.name = name
         self.targetCalories = targetCalories
         self.targetCarbohydrates = targetCarbohydrates
         self.targetProtein = targetProtein
         self.targetFat = targetFat
-//        self.dailyNutrition = dailyNutrition
-//        self.cat = cat
-    }
-    
-    static func dummyData() -> User {
-        return User(name: "Aaron",
-                    targetCalories: 2000,
-                    targetCarbohydrates: 225,
-                    targetProtein: 65,
-                    targetFat: 45
-//                    dailyNutrition: DailyNutrition.dummyData(),
-//                    cat: Cat.dummyData()
-        )
+        self.cat = cat
     }
 }

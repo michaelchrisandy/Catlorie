@@ -14,9 +14,9 @@ class Cat: Identifiable {
     var name: String?
     var image: String?
     var weight: Float?
-    var badges = [Badge]()
+    @Relationship(deleteRule: .cascade) var badges = [Badge]()
 
-    init(name: String, image: String, weight: Float){
+    init(id: UUID = UUID(), name: String, image: String, weight: Float){
         self.name = name
         self.image = image
         self.weight = weight

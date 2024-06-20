@@ -58,22 +58,38 @@ struct HomeView: View {
         }
         .padding()
         .onAppear{
-            if user.isEmpty {
-                addSampleData()
-                print(user[0].dailyNutrition[0].calories)
-            }
-            else {
-                print("ga kosong ni brok")
-            }
+            deleteAllUsers()
+            addSampleData()
+            print(user[0].cat.badges[0].name, user[0].cat.badges[0].desc)
         }
     }
     
+    func deleteAllUsers() {
+            for user in user {
+                modelContext.delete(user)
+            }
+            
+            do {
+                try modelContext.save()
+            } catch {
+                print("Error saving context after deletion: \(error.localizedDescription)")
+            }
+        }
+    
     func addSampleData(){
+        let cat = Cat(name: "Hose", image: "catpic", weight: 20)
+        modelContext.insert(cat)
+        
+        cat.badges.append(Badge(name: "Blue Hat", desc: "2 day streak", image: ""))
+        cat.badges.append(Badge(name: "Red Hat", desc: "3 day streak", image: ""))
+        cat.badges.append(Badge(name: "Green Hat", desc: "4 day streak", image: ""))
+        
         let user = User(name: "Aaron",
                         targetCalories: 2000,
                         targetCarbohydrates: 225,
                         targetProtein: 65,
-                        targetFat: 45
+                        targetFat: 45,
+                        cat: cat
         )
         
         modelContext.insert(user)
