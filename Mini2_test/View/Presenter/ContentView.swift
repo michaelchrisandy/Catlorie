@@ -17,7 +17,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("", systemImage: "house.fill")
                     }
-                NutritionTargetView()
+                BadgesView()
                     .tabItem {
                         Label("", systemImage: "pencil.and.scribble")
                     }

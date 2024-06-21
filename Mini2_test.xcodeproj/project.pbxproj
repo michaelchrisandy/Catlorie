@@ -20,6 +20,7 @@
 		DC03E7132C22C87100E6D022 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7122C22C87100E6D022 /* Cat.swift */; };
 		DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */; };
 		DC03E7172C22C91000E6D022 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7162C22C91000E6D022 /* Badge.swift */; };
+		DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7182C241E3200E6D022 /* BadgesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DC03E7122C22C87100E6D022 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNutrition.swift; sourceTree = "<group>"; };
 		DC03E7162C22C91000E6D022 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		DC03E7182C241E3200E6D022 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				DC03E6F52C1AD70900E6D022 /* ContentView.swift */,
 				DC03E7072C21D18D00E6D022 /* NutritionTargetTextView.swift */,
 				DC03E7092C21DAD200E6D022 /* HomeView.swift */,
+				DC03E7182C241E3200E6D022 /* BadgesView.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				DC03E7132C22C87100E6D022 /* Cat.swift in Sources */,
 				DC03E70E2C21E31900E6D022 /* CircularProgressView.swift in Sources */,
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,
+				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
 				DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */,
 			);
