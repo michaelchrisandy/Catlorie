@@ -80,10 +80,10 @@ struct HomeView: View {
         let cat = Cat(name: "Hose", image: "catpic", weight: 20)
         modelContext.insert(cat)
         
-        cat.badges.append(Badge(name: "Blue Hat", desc: "2 day streak", image: "hatpic"))
-        cat.badges.append(Badge(name: "Red Hat", desc: "3 day streak", image: "cap"))
-        cat.badges.append(Badge(name: "Green Hat", desc: "4 day streak", image: "hat"))
-        cat.badges.append(Badge(name: "Green Hat", desc: "5 day streak", image: "party-hat"))
+        cat.badges.append(Badge(name: "Blue Hat", desc: "2 day streak", image: "hatpic", category: BadgeCategory.hat))
+        cat.badges.append(Badge(name: "Red Hat", desc: "3 day streak", image: "cap", category: BadgeCategory.hat))
+        cat.badges.append(Badge(name: "Green Hat", desc: "4 day streak", image: "hat", category: BadgeCategory.hat))
+        cat.badges.append(Badge(name: "Green Hat", desc: "5 day streak", image: "party-hat", category: BadgeCategory.hat))
         
         let user = User(name: "Aaron",
                         targetCalories: 2000,

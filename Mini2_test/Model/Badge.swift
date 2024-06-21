@@ -14,10 +14,21 @@ class Badge: Identifiable {
     var name: String
     var desc: String
     var image: String
+    var category: BadgeCategory
+    var isUsed: Bool = false
     
-    init(id: UUID = UUID(), name: String, desc: String, image: String) {
+    init(id: UUID = UUID(), name: String, desc: String, image: String, category: BadgeCategory) {
         self.name = name
         self.desc = desc
         self.image = image
+        self.category = category
     }
+}
+
+enum BadgeCategory: String, Codable {
+    case hat
+    case tree
+    case necklace
+    case toy
+    case food
 }
