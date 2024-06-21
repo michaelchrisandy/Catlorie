@@ -12,6 +12,8 @@ struct HomeView: View {
     
     @Environment(\.modelContext) var modelContext
     @Query var user: [User]
+    @Query var badges: [Badge]
+    @Query var cat: [Cat]
     @State private var progress = 0.5
     
     var body: some View {
@@ -59,31 +61,64 @@ struct HomeView: View {
         .padding()
         .onAppear{
             deleteAllUsers()
+            deleteAllCats()
+            deleteAllBadges()
             addSampleData()
-            print(user[0].cat.badges[0].name, user[0].cat.badges[0].desc)
+            if let user = user.first {
+                print(user.dailyNutrition[0].calories)
+            }
         }
     }
     
     func deleteAllUsers() {
-            for user in user {
-                modelContext.delete(user)
-            }
-            
-            do {
-                try modelContext.save()
-            } catch {
-                print("Error saving context after deletion: \(error.localizedDescription)")
-            }
+        for user in user {
+            modelContext.delete(user)
         }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving context after deletion: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteAllCats() {
+        for cat in cat {
+            modelContext.delete(cat)
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving context after deletion: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteAllBadges() {
+        for badge in badges {
+            modelContext.delete(badge)
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error saving context after deletion: \(error.localizedDescription)")
+        }
+    }
     
     func addSampleData(){
+        let badge1 = Badge(name: "Hat 1", desc: "2 day streak", image: "hatpic", category: BadgeCategory.hat)
+        let badge2 = Badge(name: "Hat 2", desc: "3 day streak", image: "cap", category: BadgeCategory.hat)
+        let badge3 = Badge(name: "Hat 3", desc: "4 day streak", image: "hat", category: BadgeCategory.hat)
+        let badge4 = Badge(name: "Party Hat", desc: "5 day streak", image: "party-hat", category: BadgeCategory.hat)
+        
+        modelContext.insert(badge1)
+        modelContext.insert(badge2)
+        modelContext.insert(badge3)
+        modelContext.insert(badge4)
+        
         let cat = Cat(name: "Hose", image: "catpic", weight: 20)
         modelContext.insert(cat)
-        
-        cat.badges.append(Badge(name: "Blue Hat", desc: "2 day streak", image: "hatpic", category: BadgeCategory.hat))
-        cat.badges.append(Badge(name: "Red Hat", desc: "3 day streak", image: "cap", category: BadgeCategory.hat))
-        cat.badges.append(Badge(name: "Green Hat", desc: "4 day streak", image: "hat", category: BadgeCategory.hat))
-        cat.badges.append(Badge(name: "Green Hat", desc: "5 day streak", image: "party-hat", category: BadgeCategory.hat))
         
         let user = User(name: "Aaron",
                         targetCalories: 2000,
@@ -92,7 +127,6 @@ struct HomeView: View {
                         targetFat: 45,
                         cat: cat
         )
-        
         modelContext.insert(user)
         
         user.dailyNutrition.append(DailyNutrition(date: Date(),
@@ -108,7 +142,7 @@ struct HomeView: View {
                                                   carbohydrates: 250,
                                                   fat: 70)
         )
-        user.dailyNutrition.append(DailyNutrition(date: 
+        user.dailyNutrition.append(DailyNutrition(date:
                                                     Calendar.current.date(byAdding: .day, value: -2, to: Date())!,
                                                   calories: 1500,
                                                   protein: 55,

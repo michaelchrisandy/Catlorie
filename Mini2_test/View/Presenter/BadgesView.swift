@@ -11,10 +11,9 @@ import SwiftData
 struct BadgesView: View {
     
     @Query var user: [User]
+    @Query var badges: [Badge]
+    @Query var cat: [Cat]
     let columns = [GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 20)]
-    
-    @State private var draggedBadge: Badge?
-    @State private var dragPosition: CGPoint = .zero
     
     var body: some View {
         VStack {
@@ -27,32 +26,10 @@ struct BadgesView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 250)
-                .overlay(
-                    GeometryReader { geometry in
-                        if let badge = draggedBadge {
-                            Image(badge.image)
-                                .resizable()
-                                .frame(width: 80, height: 80)
-                                .position(dragPosition)
-                                .gesture(
-                                    DragGesture()
-                                        .onChanged { value in
-                                            dragPosition = value.location
-                                        }
-                                        .onEnded { _ in
-                                            if let firstUser = user.first {
-                                                firstUser.cat.badges.append(badge)
-                                                draggedBadge = nil
-                                            }
-                                        }
-                                )
-                        }
-                    }
-                )
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 30) {
-                    ForEach(user[0].cat.badges) { badge in
+                    ForEach(badges) { badge in
                         ZStack {
                             Circle()
                                 .fill(Color("CustomYellow"))
@@ -62,16 +39,41 @@ struct BadgesView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 80)
+                            if let cat = user.first?.cat {
+                                ForEach(cat.badges) { badge in
+                                    if badge.category == .hat {
+                                        Text(badge.name)
+                                    }
+                                }
+                            }
                         }
                         .onTapGesture {
-                            draggedBadge = badge
-                            dragPosition = CGPoint(x: 100, y: 100) // Initial drag position
+                            assignBadgeToCat(badge)
+                            print("after assigning: \(user[0].cat.badges.count)")
                         }
                     }
                 }
             }
         }
         .padding()
+        .onAppear{
+            print("badges count: \(badges.count)")
+            print("cats count: \(cat.count)")
+            print("users count: \(user.count)")
+            print("on appear: \(user[0].cat.badges.count)")
+        }
+    }
+    
+    private func assignBadgeToCat(_ badge: Badge) {
+        if let user = user.first {
+            if !user.cat.badges.contains(where: { $0.id == badge.id }) && !badge.isUsed{
+                user.cat.badges.append(badge)
+                badge.isUsed = true
+                print("Badge assigned to cat")
+            } else {
+                print("Badge already assigned to cat")
+            }
+        }
     }
 }
 
