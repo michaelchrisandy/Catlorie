@@ -55,6 +55,7 @@ struct HomeView: View {
                         .shadow(radius: 3)
                 }
                 .padding()
+                .padding(.bottom, -6)
                 
                 NavigationLink{
                     
@@ -174,20 +175,7 @@ struct ExtractedView: View {
                 NavigationLink{
                     
                 }label: {
-                    HStack{
-                        Image(systemName: "flame")
-                            .foregroundStyle(.red)
-                        Text("7")
-                    }
-                    .foregroundStyle(.black)
-                    .font(.title3)
-                    .fontWeight(.light)
-                    .frame(width: 90, height: 40)
-                    .padding(.horizontal, 5)
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.black.opacity(0.4), lineWidth: 1)
-                    )
+                    ToolBarIcon(text: "7", image: "flame", color: "red")
                 }
                 
                 Spacer()
@@ -195,20 +183,7 @@ struct ExtractedView: View {
                 NavigationLink{
                     
                 }label: {
-                    HStack{
-                        Image(systemName: "dollarsign.circle")
-                            .foregroundStyle(.green)
-                        Text("100")
-                    }
-                    .foregroundStyle(.black)
-                    .font(.title3)
-                    .fontWeight(.light)
-                    .frame(width: 90, height: 40)
-                    .padding(.horizontal, 5)
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.black.opacity(0.4), lineWidth: 1)
-                    )
+                    ToolBarIcon(text: "100", image: "dollarsign.circle", color: "green")
                 }
             }
             .padding()
@@ -216,3 +191,4 @@ struct ExtractedView: View {
         }
     }
 }
+
