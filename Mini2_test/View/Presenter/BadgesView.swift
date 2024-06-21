@@ -1,10 +1,3 @@
-//
-//  BadgesView.swift
-//  Mini2_test
-//
-//  Created by Jonathan Aaron Wibawa on 20/06/24.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -22,10 +15,24 @@ struct BadgesView: View {
                 .fontWeight(.heavy)
                 .padding(2)
             
-            Image("catpic")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 250)
+            ZStack {
+                Image("catpic")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250)
+                
+                if let cat = user.first?.cat {
+                    ForEach(cat.badges) { badge in
+                        if badge.category == .hat {
+                            Image(badge.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 120)
+                                .position(x: 185, y: 32)
+                        }
+                    }
+                }
+            }
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 30) {
@@ -39,13 +46,6 @@ struct BadgesView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 80)
-                            if let cat = user.first?.cat {
-                                ForEach(cat.badges) { badge in
-                                    if badge.category == .hat {
-                                        Text(badge.name)
-                                    }
-                                }
-                            }
                         }
                         .onTapGesture {
                             assignBadgeToCat(badge)
@@ -56,7 +56,7 @@ struct BadgesView: View {
             }
         }
         .padding()
-        .onAppear{
+        .onAppear {
             print("badges count: \(badges.count)")
             print("cats count: \(cat.count)")
             print("users count: \(user.count)")
@@ -66,7 +66,13 @@ struct BadgesView: View {
     
     private func assignBadgeToCat(_ badge: Badge) {
         if let user = user.first {
-            if !user.cat.badges.contains(where: { $0.id == badge.id }) && !badge.isUsed{
+            if let index = user.cat.badges.firstIndex(where: { $0.category == badge.category }) {
+                user.cat.badges[index].isUsed = false
+                user.cat.badges.remove(at: index)
+                user.cat.badges.append(badge)
+                badge.isUsed = true
+                print("Badge replaced on cat")
+            } else if !badge.isUsed {
                 user.cat.badges.append(badge)
                 badge.isUsed = true
                 print("Badge assigned to cat")
@@ -75,6 +81,7 @@ struct BadgesView: View {
             }
         }
     }
+
 }
 
 #Preview {
