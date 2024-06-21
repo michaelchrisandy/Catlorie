@@ -81,7 +81,7 @@ struct BadgesView: View {
             }
         }
     }
-
+    
 }
 
 #Preview {

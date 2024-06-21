@@ -19,16 +19,17 @@ struct CircularProgressView: View {
                     .fill(.white)
                 Circle()
                     .stroke(
-                        style: StrokeStyle(lineWidth: 15, lineCap: .round)
+                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
                     )
                     .foregroundStyle(Color("CustomOrange").opacity(0.5))
-                    .frame(width: 80)
+                    .frame(width: 60)
                 Circle()
                     .trim(from: 0.0, to: percentage)
                     .stroke(
-                        style: StrokeStyle(lineWidth: 15, lineCap: .round)
+                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
                     )
                     .foregroundStyle(Color("CustomOrange"))
+                    .frame(width: 60)
             }
         }
     }

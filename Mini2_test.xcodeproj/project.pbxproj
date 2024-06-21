@@ -21,6 +21,7 @@
 		DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */; };
 		DC03E7172C22C91000E6D022 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7162C22C91000E6D022 /* Badge.swift */; };
 		DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7182C241E3200E6D022 /* BadgesView.swift */; };
+		DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNutrition.swift; sourceTree = "<group>"; };
 		DC03E7162C22C91000E6D022 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		DC03E7182C241E3200E6D022 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
+		DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DC03E70D2C21E31900E6D022 /* CircularProgressView.swift */,
+				DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				DC03E7052C21C2D400E6D022 /* NutritionTargetView.swift in Sources */,
 				DC03E6F42C1AD70900E6D022 /* Mini2_testApp.swift in Sources */,
 				DC03E70A2C21DAD200E6D022 /* HomeView.swift in Sources */,
+				DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */,
 				DC03E7132C22C87100E6D022 /* Cat.swift in Sources */,
 				DC03E70E2C21E31900E6D022 /* CircularProgressView.swift in Sources */,
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,

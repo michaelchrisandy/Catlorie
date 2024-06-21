@@ -16,6 +16,8 @@ class User: Identifiable {
     var targetCarbohydrates: Float?
     var targetProtein: Float?
     var targetFat: Float?
+    var streak: Int = 0
+    var coin: Int = 0
     @Relationship(deleteRule: .cascade) var dailyNutrition = [DailyNutrition]()
     @Relationship(deleteRule: .cascade) var cat: Cat
     
