@@ -18,44 +18,57 @@ struct HomeView: View {
     
     var body: some View {
         
-        VStack {
-            ExtractedView()
-            
-            HalfCircularProgressView(percentage: $progress)
-                .frame(width: 250.0, height: 250.0)
+        NavigationStack {
+            VStack {
+                ExtractedView()
+                
+                HalfCircularProgressView(percentage: $progress)
+                    .frame(width: 250.0, height: 250.0)
+                    .padding()
+                    .padding(.bottom, -120)
+                
+                Image("cat_fit_normal")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 200)
+                    .offset(x: 20)
+                
+                HStack(spacing: -20){
+                    CircularProgressView(percentage: 0.6, category: "A")
+                    
+                    CircularProgressView(percentage: 0.8, category: "B")
+                    
+                    CircularProgressView(percentage: 0.4, category: "C")
+                }
+                .padding(.bottom, -20)
+                
+                NavigationLink{
+                    
+                }label: {
+                    Text("+ Track Eat")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
+                        .frame(width: 260, height: 50)
+                        .background(Color("CustomOrange"))
+                        .cornerRadius(15)
+                        .shadow(radius: 3)
+                }
                 .padding()
-                .padding(.bottom, -100)
-            
-            Image("cat_fit_normal")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200)
-                .offset(x: 20)
-            
-            HStack(spacing: -20){
-                CircularProgressView(percentage: 0.6, category: "A")
                 
-                CircularProgressView(percentage: 0.8, category: "B")
+                NavigationLink{
+                    
+                }label: {
+                    Text("set new target")
+                        .underline()
+                        .foregroundStyle(.black)
+                        .opacity(0.3)
+                }
                 
-                CircularProgressView(percentage: 0.4, category: "C")
+                Spacer()
             }
-            
-            Button{
-                
-            }label: {
-                Text("+ Track Eat")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
-                    .frame(width: 260, height: 50)
-                    .background(Color("CustomOrange"))
-                    .cornerRadius(15)
-                    .shadow(radius: 3)
-            }
-            
-            Spacer()
+            .padding()
         }
-        .padding()
         //        .onAppear{
         //            deleteAllUsers()
         //            deleteAllCats()
@@ -156,26 +169,50 @@ struct HomeView: View {
 
 struct ExtractedView: View {
     var body: some View {
-        HStack{
-            Button{
-                
-            }label: {
-                Image(systemName: "gear")
-                    .resizable()
-                    .frame(width: 40, height: 40)
+        NavigationStack {
+            HStack{
+                NavigationLink{
+                    
+                }label: {
+                    HStack{
+                        Image(systemName: "flame")
+                            .foregroundStyle(.red)
+                        Text("7")
+                    }
                     .foregroundStyle(.black)
+                    .font(.title3)
+                    .fontWeight(.light)
+                    .frame(width: 90, height: 40)
+                    .padding(.horizontal, 5)
+                    .background(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.black.opacity(0.4), lineWidth: 1)
+                    )
+                }
+                
+                Spacer()
+                
+                NavigationLink{
+                    
+                }label: {
+                    HStack{
+                        Image(systemName: "dollarsign.circle")
+                            .foregroundStyle(.green)
+                        Text("100")
+                    }
+                    .foregroundStyle(.black)
+                    .font(.title3)
+                    .fontWeight(.light)
+                    .frame(width: 90, height: 40)
+                    .padding(.horizontal, 5)
+                    .background(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.black.opacity(0.4), lineWidth: 1)
+                    )
+                }
             }
-            Spacer()
-            Text("50 🔥")
-                .font(.title3)
-                .fontWeight(.semibold)
-                .frame(width: 90, height: 40)
-                .background(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color.black.opacity(0.5), lineWidth: 2)
-                )
+            .padding()
+            .padding(.vertical, -10)
         }
-        .padding()
-        .padding(.vertical, -10)
     }
 }

@@ -16,7 +16,7 @@ struct HalfCircularProgressView: View {
                 .trim(from: 0.35, to: 0.85)
                 .stroke(style: StrokeStyle(lineWidth: 18.0, lineCap: .round, lineJoin: .round))
                 .opacity(0.3)
-                .foregroundColor(Color.gray)
+                .foregroundStyle(Color("CustomOrange"))
                 .rotationEffect(.degrees(54.5))
             
             Circle()
@@ -28,9 +28,11 @@ struct HalfCircularProgressView: View {
             VStack{
                 Text("1000")
                     .font(Font.system(size: 44))
+                    .tracking(2)
                     .fontWeight(.heavy)
                 Text("of 2000 calories")
-                    .fontWeight(.ultraLight)
+                    .fontWeight(.bold)
+                    .opacity(0.25)
             }
             .padding(.top, -70)
         }

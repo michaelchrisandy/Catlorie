@@ -21,7 +21,7 @@ struct CircularProgressView: View {
                     .stroke(
                         style: StrokeStyle(lineWidth: 10, lineCap: .round)
                     )
-                    .foregroundStyle(Color("CustomOrange").opacity(0.5))
+                    .foregroundStyle(Color("CustomOrange").opacity(0.3))
                     .frame(width: 60)
                 Circle()
                     .trim(from: 0.0, to: percentage)
