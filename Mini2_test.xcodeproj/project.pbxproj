@@ -23,6 +23,7 @@
 		DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7182C241E3200E6D022 /* BadgesView.swift */; };
 		DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */; };
 		DC60B8C32C25971500558D0E /* ToolBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C22C25971500558D0E /* ToolBarIcon.swift */; };
+		DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C42C27209200558D0E /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DC03E7182C241E3200E6D022 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircularProgressView.swift; sourceTree = "<group>"; };
 		DC60B8C22C25971500558D0E /* ToolBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarIcon.swift; sourceTree = "<group>"; };
+		DC60B8C42C27209200558D0E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				DC03E70D2C21E31900E6D022 /* CircularProgressView.swift */,
 				DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */,
 				DC60B8C22C25971500558D0E /* ToolBarIcon.swift */,
+				DC60B8C42C27209200558D0E /* CustomButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				DC60B8C32C25971500558D0E /* ToolBarIcon.swift in Sources */,
 				DC03E7172C22C91000E6D022 /* Badge.swift in Sources */,
 				DC03E7052C21C2D400E6D022 /* NutritionTargetView.swift in Sources */,
+				DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */,
 				DC03E6F42C1AD70900E6D022 /* Mini2_testApp.swift in Sources */,
 				DC03E70A2C21DAD200E6D022 /* HomeView.swift in Sources */,
 				DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */,

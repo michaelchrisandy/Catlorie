@@ -25,7 +25,7 @@ class Badge: Identifiable {
     }
 }
 
-enum BadgeCategory: String, Codable {
+enum BadgeCategory: String, Codable, CaseIterable {
     case hat
     case tree
     case necklace

@@ -45,14 +45,7 @@ struct HomeView: View {
                 NavigationLink{
                     
                 }label: {
-                    Text("+ Track Eat")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                        .frame(width: 260, height: 50)
-                        .background(Color("CustomOrange"))
-                        .cornerRadius(15)
-                        .shadow(radius: 3)
+                    CustomButton(text: "+ Track eat")
                 }
                 .padding()
                 .padding(.bottom, -6)
