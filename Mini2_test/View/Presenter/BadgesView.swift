@@ -10,13 +10,18 @@ struct BadgesView: View {
     @State private var currentCategory: BadgeCategory = .hat
     @State private var selectedBadge: Badge? = nil
     
+    
     private var allBadges: [Badge] = [
-        Badge(name: "Hat 1", desc: "A cool hat", image: "hatpic", category: .hat),
-        Badge(name: "Tree 1", desc: "A tree badge", image: "treepic", category: .tree),
-        Badge(name: "Necklace 1", desc: "A nice necklace", image: "necklacepic", category: .necklace),
-        Badge(name: "Toy 1", desc: "A fun toy", image: "toypic", category: .toy),
-        Badge(name: "Food 1", desc: "A food badge", image: "foodpic", category: .food)
+        Badge(name: "Hat 1", desc: "A cool hat", image: "hatpic", category: .hat, price: 10),
+        Badge(name: "Hat 2", desc: "A cool hat", image: "hat", category: .hat, price: 10),
+        Badge(name: "Hat 3", desc: "A cool hat", image: "party-hat", category: .hat, price: 10),
+        Badge(name: "Tree 1", desc: "A tree badge", image: "treepic", category: .tree, price: 10),
+        Badge(name: "Necklace 1", desc: "A nice necklace", image: "necklacepic", category: .necklace, price: 10),
+        Badge(name: "Toy 1", desc: "A fun toy", image: "toypic", category: .toy, price: 10),
+        Badge(name: "Food 1", desc: "A food badge", image: "foodpic", category: .food, price: 10)
     ]
+    
+    @State private var cat = Cat(name: "Hose", image: "cat_fit_normal", weight: 20)
     
     var body: some View {
         NavigationStack {
@@ -31,13 +36,12 @@ struct BadgesView: View {
                     .padding(5)
                 
                 ZStack {
-                    Image("cat_fit_normal")
+                    Image(cat.image ?? "cat_fit_normal")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
                         .offset(x: 20)
                         .padding(.vertical, 50)
-                    
                     
                     //                if let cat = user.first?.cat {
                     //                    ForEach(cat.badges) { badge in
@@ -75,18 +79,29 @@ struct BadgesView: View {
                     ScrollView(.horizontal) {
                         LazyHGrid(rows: rows, spacing: 20) {
                             ForEach(filteredBadges()) { badge in
+                                let isUnlocked = cat.badges.contains(where: { $0.id == badge.id })
                                 ZStack {
                                     Circle()
-                                        .fill(selectedBadge == badge ? Color.white : Color.gray.opacity(0.2))
+                                        .fill(selectedBadge == badge && isUnlocked == true ? Color.white : Color.gray.opacity(0.2))
                                         .frame(width: 90)
                                         .overlay(
                                             Circle()
                                                 .stroke(selectedBadge == badge ? Color.orange : Color.clear, lineWidth: 4)
                                         )
+                                    
                                     Image(badge.image)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 60)
+                                        .opacity(isUnlocked ? 1.0 : 0.4)
+                                    
+                                    if !isUnlocked {
+                                        Image(systemName: "lock.fill")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20)
+                                            .foregroundColor(.gray)
+                                    }
                                 }
                                 .onTapGesture {
                                     selectedBadge = badge
@@ -95,7 +110,7 @@ struct BadgesView: View {
                         }
                     }
                     
-                    CustomButton(text: "Wear This")
+                    CustomButton(text: buttonText)
                         .padding(.top, 20)
                 }
                 Spacer()
@@ -103,6 +118,11 @@ struct BadgesView: View {
             .padding()
             .padding(.horizontal, 20)
         }
+    }
+    
+    private var buttonText: String {
+        guard let selectedBadge = selectedBadge else { return "Select a Badge" }
+        return cat.badges.contains(where: { $0.id == selectedBadge.id }) ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
     }
     
     private func previousCategory() {
@@ -140,7 +160,6 @@ struct BadgesView: View {
     //            }
     //        }
     //    }
-    
 }
 
 #Preview {

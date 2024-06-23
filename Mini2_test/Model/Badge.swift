@@ -15,13 +15,15 @@ class Badge: Identifiable {
     var desc: String
     var image: String
     var category: BadgeCategory
+    var price: Int
     var isUsed: Bool = false
     
-    init(id: UUID = UUID(), name: String, desc: String, image: String, category: BadgeCategory) {
+    init(id: UUID = UUID(), name: String, desc: String, image: String, category: BadgeCategory, price: Int) {
         self.name = name
         self.desc = desc
         self.image = image
         self.category = category
+        self.price = price
     }
 }
 
