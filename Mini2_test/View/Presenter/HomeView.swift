@@ -19,49 +19,75 @@ struct HomeView: View {
     var body: some View {
         
         NavigationStack {
-            VStack {
-                ExtractedView()
-                
-                HalfCircularProgressView(percentage: $progress)
-                    .frame(width: 250.0, height: 250.0)
+            ScrollView {
+                VStack {
+                    ExtractedView()
+                    
+                    HalfCircularProgressView(percentage: $progress)
+                        .frame(width: 250.0, height: 250.0)
+                        .padding()
+                        .padding(.bottom, -120)
+                    
+                    Image("cat_fit_normal")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200)
+                        .offset(x: 20)
+                    
+                    HStack(spacing: -20){
+                        CircularProgressView(percentage: 0.6, category: "A")
+                        CircularProgressView(percentage: 0.8, category: "B")
+                        CircularProgressView(percentage: 0.4, category: "C")
+                    }
+                    .padding(.bottom, -20)
+                    
+                    NavigationLink{
+                        
+                    }label: {
+                        CustomButton(text: "+ Track eat")
+                    }
                     .padding()
-                    .padding(.bottom, -120)
-                
-                Image("cat_fit_normal")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 200)
-                    .offset(x: 20)
-                
-                HStack(spacing: -20){
-                    CircularProgressView(percentage: 0.6, category: "A")
+                    .padding(.bottom, -6)
                     
-                    CircularProgressView(percentage: 0.8, category: "B")
+                    NavigationLink{
+                        
+                    }label: {
+                        Text("set new target")
+                            .underline()
+                            .foregroundStyle(.black)
+                            .opacity(0.3)
+                    }
                     
-                    CircularProgressView(percentage: 0.4, category: "C")
-                }
-                .padding(.bottom, -20)
-                
-                NavigationLink{
+                    VStack{
+                        ZStack {
+                            Rectangle()
+                                .fill(Color("CustomYellow"))
+                                .cornerRadius(20)
+                                .frame(height: 350)
+                                .opacity(0.3)
+                          
+                            VStack {
+                                HStack {
+                                    Image(systemName: "trophy")
+                                    Text("Complete today’s challenges 0/3")
+                                }
+                                .foregroundStyle(.gray)
+                                .opacity(0.8)
+                                .padding(.bottom, 20)
+                                
+                                ForEach(1..<4) {count in
+                                    ChallengeListItem(challengeCount: count, reward: 10, challengeTitle: "Drink Milk")
+                                }
+                                .offset(x: -45)
+                            }
+                            .padding(.vertical, 20)
+                        }
+                    }
                     
-                }label: {
-                    CustomButton(text: "+ Track eat")
+                    Spacer()
                 }
                 .padding()
-                .padding(.bottom, -6)
-                
-                NavigationLink{
-                    
-                }label: {
-                    Text("set new target")
-                        .underline()
-                        .foregroundStyle(.black)
-                        .opacity(0.3)
-                }
-                
-                Spacer()
             }
-            .padding()
         }
         //        .onAppear{
         //            deleteAllUsers()
@@ -174,13 +200,13 @@ struct ExtractedView: View {
                 Spacer()
                 
                 NavigationLink{
-                    
+                    //                    BadgesView()
                 }label: {
                     ToolBarIcon(text: "100", image: "dollarsign.circle", color: "green")
                 }
             }
             .padding()
-            .padding(.vertical, -10)
+            .padding(.vertical, -20)
         }
     }
 }

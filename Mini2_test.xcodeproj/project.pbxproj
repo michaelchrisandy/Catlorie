@@ -24,6 +24,7 @@
 		DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */; };
 		DC60B8C32C25971500558D0E /* ToolBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C22C25971500558D0E /* ToolBarIcon.swift */; };
 		DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C42C27209200558D0E /* CustomButton.swift */; };
+		DC8D03E92C288CAF00C64E5C /* ChallengeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircularProgressView.swift; sourceTree = "<group>"; };
 		DC60B8C22C25971500558D0E /* ToolBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarIcon.swift; sourceTree = "<group>"; };
 		DC60B8C42C27209200558D0E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */,
 				DC60B8C22C25971500558D0E /* ToolBarIcon.swift */,
 				DC60B8C42C27209200558D0E /* CustomButton.swift */,
+				DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
 				DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */,
+				DC8D03E92C288CAF00C64E5C /* ChallengeListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
