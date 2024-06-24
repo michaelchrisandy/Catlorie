@@ -17,10 +17,9 @@ struct HomeView: View {
     @Query var challenges: [Challenge]
     
     @State private var progress: Float = 0.5
-    
+
     @State private var showSheet = false
     @State private var completedChallenge: Challenge? = nil
-    
     var body: some View {
         
         NavigationStack {
@@ -36,6 +35,8 @@ struct HomeView: View {
                     if let cat = user.first?.cat {
                         CatImageView(cat: cat, customBadgeOffsetX: 20)
                     }
+                    
+                    //foreach badge, offset => badge.x badge.y
                     
                     HStack(spacing: -20){
                         CircularProgressView(percentage: Double(user[0].dailyNutrition[0].protein/user[0].targetProtein!), category: "A")
