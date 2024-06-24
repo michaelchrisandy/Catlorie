@@ -24,6 +24,8 @@
 		DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */; };
 		DC60B8C32C25971500558D0E /* ToolBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C22C25971500558D0E /* ToolBarIcon.swift */; };
 		DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C42C27209200558D0E /* CustomButton.swift */; };
+		DC6698222C294E1500F44BEF /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6698212C294E1500F44BEF /* Challenge.swift */; };
+		DC6698262C29628B00F44BEF /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6698252C29628B00F44BEF /* Nutrition.swift */; };
 		DC8D03E92C288CAF00C64E5C /* ChallengeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircularProgressView.swift; sourceTree = "<group>"; };
 		DC60B8C22C25971500558D0E /* ToolBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarIcon.swift; sourceTree = "<group>"; };
 		DC60B8C42C27209200558D0E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DC6698212C294E1500F44BEF /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		DC6698252C29628B00F44BEF /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +140,8 @@
 				DC03E7122C22C87100E6D022 /* Cat.swift */,
 				DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */,
 				DC03E7162C22C91000E6D022 /* Badge.swift */,
+				DC6698212C294E1500F44BEF /* Challenge.swift */,
+				DC6698252C29628B00F44BEF /* Nutrition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,7 +235,9 @@
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,
 				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
+				DC6698222C294E1500F44BEF /* Challenge.swift in Sources */,
 				DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */,
+				DC6698262C29628B00F44BEF /* Nutrition.swift in Sources */,
 				DC8D03E92C288CAF00C64E5C /* ChallengeListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

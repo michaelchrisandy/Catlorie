@@ -15,7 +15,7 @@ struct HomeView: View {
     //    @Query var badges: [Badge]
     //    @Query var cat: [Cat]
     @State private var progress: Float = 0.5
-    
+        
     var body: some View {
         
         NavigationStack {
@@ -33,6 +33,8 @@ struct HomeView: View {
                         .scaledToFill()
                         .frame(width: 200)
                         .offset(x: 20)
+                    
+                    //foreach badge, offset => badge.x badge.y
                     
                     HStack(spacing: -20){
                         CircularProgressView(percentage: 0.6, category: "A")
