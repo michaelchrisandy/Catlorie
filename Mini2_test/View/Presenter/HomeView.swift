@@ -15,7 +15,6 @@ struct HomeView: View {
     @Query var badges: [Badge]
     @Query var cat: [Cat]
     @Query var challenges: [Challenge]
-    
     @State private var progress: Float = 0.5
 
     @State private var showSheet = false

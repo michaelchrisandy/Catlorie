@@ -6,7 +6,6 @@ struct BadgesView: View {
     @Query var user: [User]
     @Query var badges: [Badge]
     @Query var cat: [Cat]
-    
     let rows = [GridItem(.fixed(80))]
     
     @State private var currentCategory: BadgeCategory = .Accessories
