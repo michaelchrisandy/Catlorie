@@ -11,7 +11,6 @@
 		DC03E6F62C1AD70900E6D022 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E6F52C1AD70900E6D022 /* ContentView.swift */; };
 		DC03E6F82C1AD70A00E6D022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC03E6F72C1AD70A00E6D022 /* Assets.xcassets */; };
 		DC03E6FB2C1AD70A00E6D022 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC03E6FA2C1AD70A00E6D022 /* Preview Assets.xcassets */; };
-		DC03E7032C1ADBA800E6D022 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = DC03E7022C1ADBA800E6D022 /* SplineRuntime */; };
 		DC03E7052C21C2D400E6D022 /* NutritionTargetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7042C21C2D400E6D022 /* NutritionTargetView.swift */; };
 		DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7072C21D18D00E6D022 /* NutritionTargetTextView.swift */; };
 		DC03E70A2C21DAD200E6D022 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7092C21DAD200E6D022 /* HomeView.swift */; };
@@ -24,6 +23,8 @@
 		DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */; };
 		DC60B8C32C25971500558D0E /* ToolBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C22C25971500558D0E /* ToolBarIcon.swift */; };
 		DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C42C27209200558D0E /* CustomButton.swift */; };
+		DC6698222C294E1500F44BEF /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6698212C294E1500F44BEF /* Challenge.swift */; };
+		DC6698262C29628B00F44BEF /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6698252C29628B00F44BEF /* Nutrition.swift */; };
 		DC8D03E92C288CAF00C64E5C /* ChallengeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,8 @@
 		DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircularProgressView.swift; sourceTree = "<group>"; };
 		DC60B8C22C25971500558D0E /* ToolBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarIcon.swift; sourceTree = "<group>"; };
 		DC60B8C42C27209200558D0E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		DC6698212C294E1500F44BEF /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		DC6698252C29628B00F44BEF /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC03E7032C1ADBA800E6D022 /* SplineRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +138,8 @@
 				DC03E7122C22C87100E6D022 /* Cat.swift */,
 				DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */,
 				DC03E7162C22C91000E6D022 /* Badge.swift */,
+				DC6698212C294E1500F44BEF /* Challenge.swift */,
+				DC6698252C29628B00F44BEF /* Nutrition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,7 +161,6 @@
 			);
 			name = Mini2_test;
 			packageProductDependencies = (
-				DC03E7022C1ADBA800E6D022 /* SplineRuntime */,
 			);
 			productName = Mini2_test;
 			productReference = DC03E6F02C1AD70900E6D022 /* Mini2_test.app */;
@@ -188,7 +191,6 @@
 			);
 			mainGroup = DC03E6E72C1AD70900E6D022;
 			packageReferences = (
-				DC03E7012C1ADBA800E6D022 /* XCRemoteSwiftPackageReference "spline-ios" */,
 			);
 			productRefGroup = DC03E6F12C1AD70900E6D022 /* Products */;
 			projectDirPath = "";
@@ -229,7 +231,9 @@
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,
 				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
+				DC6698222C294E1500F44BEF /* Challenge.swift in Sources */,
 				DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */,
+				DC6698262C29628B00F44BEF /* Nutrition.swift in Sources */,
 				DC8D03E92C288CAF00C64E5C /* ChallengeListItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,25 +440,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DC03E7012C1ADBA800E6D022 /* XCRemoteSwiftPackageReference "spline-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/splinetool/spline-ios";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DC03E7022C1ADBA800E6D022 /* SplineRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DC03E7012C1ADBA800E6D022 /* XCRemoteSwiftPackageReference "spline-ios" */;
-			productName = SplineRuntime;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC03E6E82C1AD70900E6D022 /* Project object */;
 }

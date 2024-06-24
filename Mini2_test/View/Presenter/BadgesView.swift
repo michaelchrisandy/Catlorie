@@ -3,25 +3,12 @@ import SwiftData
 
 struct BadgesView: View {
     
-    //    @Query var user: [User]
-    //    @Query var badges: [Badge]
-    //    @Query var cat: [Cat]
+    @Query var user: [User]
+    @Query var badges: [Badge]
+    @Query var cat: [Cat]
     let rows = [GridItem(.fixed(80))]
     @State private var currentCategory: BadgeCategory = .hat
     @State private var selectedBadge: Badge? = nil
-    
-    
-    private var allBadges: [Badge] = [
-        Badge(name: "Hat 1", desc: "A cool hat", image: "hatpic", category: .hat, price: 10),
-        Badge(name: "Hat 2", desc: "A cool hat", image: "hat", category: .hat, price: 10),
-        Badge(name: "Hat 3", desc: "A cool hat", image: "party-hat", category: .hat, price: 10),
-        Badge(name: "Tree 1", desc: "A tree badge", image: "treepic", category: .tree, price: 10),
-        Badge(name: "Necklace 1", desc: "A nice necklace", image: "necklacepic", category: .necklace, price: 10),
-        Badge(name: "Toy 1", desc: "A fun toy", image: "toypic", category: .toy, price: 10),
-        Badge(name: "Food 1", desc: "A food badge", image: "foodpic", category: .food, price: 10)
-    ]
-    
-    @State private var cat = Cat(name: "Hose", image: "cat_fit_normal", weight: 20)
     
     var body: some View {
         NavigationStack {
@@ -36,24 +23,24 @@ struct BadgesView: View {
                     .padding(5)
                 
                 ZStack {
-                    Image(cat.image ?? "cat_fit_normal")
+                    Image(cat[0].image ?? "cat_fit_normal")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
                         .offset(x: 20)
                         .padding(.vertical, 50)
                     
-                    //                if let cat = user.first?.cat {
-                    //                    ForEach(cat.badges) { badge in
-                    //                        if badge.category == .hat {
-                    //                            Image(badge.image)
-                    //                                .resizable()
-                    //                                .scaledToFit()
-                    //                                .frame(width: 120)
-                    //                                .position(x: 185, y: 32)
-                    //                        }
-                    //                    }
-                    //                }
+                    if let cat = user.first?.cat {
+                        ForEach(cat.badges) { badge in
+                            if badge.category == .hat {
+                                Image(badge.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 120)
+                                    .position(x: CGFloat(badge.x), y: CGFloat(badge.y))
+                            }
+                        }
+                    }
                 }
                 
                 VStack {
@@ -79,7 +66,7 @@ struct BadgesView: View {
                     ScrollView(.horizontal) {
                         LazyHGrid(rows: rows, spacing: 20) {
                             ForEach(filteredBadges()) { badge in
-                                let isUnlocked = cat.badges.contains(where: { $0.id == badge.id })
+                                let isUnlocked = badge.isUnlocked
                                 ZStack {
                                     Circle()
                                         .fill(selectedBadge == badge && isUnlocked == true ? Color.white : Color.gray.opacity(0.2))
@@ -110,8 +97,15 @@ struct BadgesView: View {
                         }
                     }
                     
-                    CustomButton(text: buttonText)
-                        .padding(.top, 20)
+                    Button{
+                        guard let selectedBadge = selectedBadge else 
+                        { return }
+                        assignBadgeToCat(selectedBadge)
+                    }label: {
+                        CustomButton(text: buttonText)
+                            .padding(.top, 20)
+                    }
+                    
                 }
                 Spacer()
             }
@@ -122,7 +116,7 @@ struct BadgesView: View {
     
     private var buttonText: String {
         guard let selectedBadge = selectedBadge else { return "Select a Badge" }
-        return cat.badges.contains(where: { $0.id == selectedBadge.id }) ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
+        return selectedBadge.isUnlocked ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
     }
     
     private func previousCategory() {
@@ -140,26 +134,26 @@ struct BadgesView: View {
     }
     
     private func filteredBadges() -> [Badge] {
-        return allBadges.filter { $0.category == currentCategory }
+        return badges.filter { $0.category == currentCategory }
     }
     
-    //    private func assignBadgeToCat(_ badge: Badge) {
-    //        if let user = user.first {
-    //            if let index = user.cat.badges.firstIndex(where: { $0.category == badge.category }) {
-    //                user.cat.badges[index].isUsed = false
-    //                user.cat.badges.remove(at: index)
-    //                user.cat.badges.append(badge)
-    //                badge.isUsed = true
-    //                print("Badge replaced on cat")
-    //            } else if !badge.isUsed {
-    //                user.cat.badges.append(badge)
-    //                badge.isUsed = true
-    //                print("Badge assigned to cat")
-    //            } else {
-    //                print("Badge already assigned to cat")
-    //            }
-    //        }
-    //    }
+    private func assignBadgeToCat(_ badge: Badge) {
+        if let user = user.first {
+            if let index = user.cat.badges.firstIndex(where: { $0.category == badge.category }) {
+                user.cat.badges[index].isUsed = false
+                user.cat.badges.remove(at: index)
+                user.cat.badges.append(badge)
+                badge.isUsed = true
+                print("Badge replaced on cat")
+            } else if !badge.isUsed {
+                user.cat.badges.append(badge)
+                badge.isUsed = true
+                print("Badge assigned to cat")
+            } else {
+                print("Badge already assigned to cat")
+            }
+        }
+    }
 }
 
 #Preview {
