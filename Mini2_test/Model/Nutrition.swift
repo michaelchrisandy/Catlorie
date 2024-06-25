@@ -1,4 +1,4 @@
-struct Nutrition: Codable {
+struct Nutrition: Codable, Equatable {
     let alcohol_100g: Double?
     let calcium_100g: Double?
     let calories_100g: Double?

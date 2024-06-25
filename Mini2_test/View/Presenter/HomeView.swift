@@ -142,7 +142,7 @@ struct HomeView: View {
             let badge1 =  Badge(name: "Hat 1", desc: "A cool hat", image: "hatpic", category: .hat, price: 10, x: 185, y: 32)
             let badge2 = Badge(name: "Hat 2", desc: "A cool hat", image: "hat", category: .hat, price: 10, x: 185, y: 32)
             let badge3 = Badge(name: "Hat 3", desc: "A cool hat", image: "party-hat", category: .hat, price: 10, x: 185, y: 32)
-            let badge4 = Badge(name: "Tree 1", desc: "A tree badge", image: "treepic", category: .tree, price: 10, x: 185, y: 32)
+            let badge4 = Badge(name: "Tree 1", desc: "A tree badge", image: "treepic", category: .tree, price: 110, x: 185, y: 32)
             
             badge1.isUnlocked = true
             badge2.isUnlocked = true
@@ -163,6 +163,7 @@ struct HomeView: View {
                             targetFat: 45,
                             cat: cat
             )
+            user.coin = 100
             modelContext.insert(user)
     
             user.dailyNutrition.append(DailyNutrition(date: Date(),
@@ -206,7 +207,7 @@ struct ExtractedView: View {
                 Spacer()
                 
                 NavigationLink{
-                    //                    BadgesView()
+                    BadgesView()
                 }label: {
                     ToolBarIcon(text: "100", image: "dollarsign.circle", color: "green")
                 }

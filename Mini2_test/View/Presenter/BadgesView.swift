@@ -6,16 +6,26 @@ struct BadgesView: View {
     @Query var user: [User]
     @Query var badges: [Badge]
     @Query var cat: [Cat]
+    
     let rows = [GridItem(.fixed(80))]
+    
     @State private var currentCategory: BadgeCategory = .hat
     @State private var selectedBadge: Badge? = nil
+    
+    private var buttonText: String {
+        guard let selectedBadge = selectedBadge else { return "Select a Badge" }
+        return selectedBadge.isUnlocked ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
+    }
+    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack{
                     Spacer()
-                    ToolBarIcon(text: "100", image: "dollarsign.circle", color: "green")
+                    ToolBarIcon(text: "\(user[0].coin)", image: "dollarsign.circle", color: "green")
                 }
                 Text("Badges")
                     .font(.largeTitle)
@@ -98,9 +108,14 @@ struct BadgesView: View {
                     }
                     
                     Button{
-                        guard let selectedBadge = selectedBadge else 
+                        guard let selectedBadge = selectedBadge else
                         { return }
-                        assignBadgeToCat(selectedBadge)
+                        
+                        if selectedBadge.isUnlocked{
+                            assignBadgeToCat(selectedBadge)
+                        } else {
+                            buyBadge(badge: selectedBadge)
+                        }
                     }label: {
                         CustomButton(text: buttonText)
                             .padding(.top, 20)
@@ -111,12 +126,30 @@ struct BadgesView: View {
             }
             .padding()
             .padding(.horizontal, 20)
+            .background(
+                Color.black.opacity(showAlert ? 0.3 : 0)
+                    .edgesIgnoringSafeArea(.all)
+            )
+            .overlay(
+                showAlert ? AnyView(customAlertView) : AnyView(EmptyView())
+            )
         }
     }
     
-    private var buttonText: String {
-        guard let selectedBadge = selectedBadge else { return "Select a Badge" }
-        return selectedBadge.isUnlocked ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
+    private var customAlertView: some View {
+        CustomAlertView(title: "Not Enough Coins!", message: alertMessage, buttonText: "OK") {
+            showAlert = false
+        }
+    }
+    
+    private func buyBadge(badge: Badge){
+        if user[0].coin >= badge.price {
+            badge.isUnlocked = true
+            user[0].coin -= badge.price
+        } else {
+            alertMessage = "You need \(badge.price - user[0].coin) more coins to buy this badge."
+            showAlert = true
+        }
     }
     
     private func previousCategory() {
@@ -159,3 +192,4 @@ struct BadgesView: View {
 #Preview {
     BadgesView()
 }
+

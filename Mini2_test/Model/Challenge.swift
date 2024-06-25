@@ -8,7 +8,9 @@
 import Foundation
 import SwiftData
 
-struct Challenge {
+@Model
+class Challenge: Identifiable {
+    var id: UUID = UUID()
     var title: String
     var reward: Int
     var isCompleted: Bool = false
@@ -16,18 +18,42 @@ struct Challenge {
     var timeObj: Date?
     var nutritionObj: Nutrition?
     
-    init(title: String, reward: Int, foodObj: String? = nil, timeObj: Date? = nil, nutritionObj: Nutrition? = nil) {
+    init(id: UUID = UUID(), title: String, reward: Int, isCompleted: Bool, foodObj: String? = nil, timeObj: Date? = nil, nutritionObj: Nutrition? = nil) {
         self.title = title
         self.reward = reward
+        self.isCompleted = isCompleted
         self.foodObj = foodObj
         self.timeObj = timeObj
         self.nutritionObj = nutritionObj
     }
     
-    static func createChallenges() -> [Challenge] {
-        return [
-            Challenge(title: "Drink Milk", reward: 10, foodObj: "milk")
-        ]
+    func validate(foodInfo: FoodInfo, inputTime: Date){
+        if let requiredFood = foodObj {
+            if foodInfo.display_name != requiredFood {
+                return
+            }
+        }
+        
+        if let requiredTime = timeObj {
+            let calendar = Calendar.current
+            if calendar.compare(inputTime, to: requiredTime, toGranularity: .hour) == .orderedDescending {
+                return
+            }
+        }
+        
+        if let requiredNutrition = nutritionObj {
+            let inputNutrition = foodInfo.nutrition
+            
+            //protein
+            if let requiredProtein = requiredNutrition.proteins_100g {
+                if inputNutrition.proteins_100g ?? 0 < requiredProtein {
+                    return
+                }
+            }
+        }
+        
+        self.isCompleted = true
     }
 }
+
 
