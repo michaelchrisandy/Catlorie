@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct Mini2_testApp: App {
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -16,7 +18,8 @@ struct Mini2_testApp: App {
         .modelContainer(for: [User.self,
                               Cat.self,
                               DailyNutrition.self,
-                              Badge.self]
+                              Badge.self,
+                              Challenge.self]
         )
     }
 }
