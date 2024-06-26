@@ -15,6 +15,7 @@ struct HomeView: View {
     @Query var badges: [Badge]
     @Query var cat: [Cat]
     @Query var challenges: [Challenge]
+
     @State private var progress: Float = 0.5
     
     var body: some View {
@@ -24,21 +25,26 @@ struct HomeView: View {
                 VStack {
                     ExtractedView()
                     
-                    HalfCircularProgressView(percentage: $progress)
+                    HalfCircularProgressView(percentage:Double(user[0].dailyNutrition[0].calories/user[0].targetCalories!))
                         .frame(width: 250.0, height: 250.0)
                         .padding()
                         .padding(.bottom, -120)
                     
-                    Image("cat_fit_normal")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 200)
-                        .offset(x: 20)
+                    if(cat.count > 0){
+                        Image(cat[0].image!)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 200)
+                    }
+                    
+                    //                        .offset(x: 20)
+                    
+                    //foreach badge, offset => badge.x badge.y
                     
                     HStack(spacing: -20){
-                        CircularProgressView(percentage: 0.6, category: "A")
-                        CircularProgressView(percentage: 0.8, category: "B")
-                        CircularProgressView(percentage: 0.4, category: "C")
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].protein/user[0].targetProtein!), category: "A")
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].carbohydrates/user[0].targetCarbohydrates!), category: "B")
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].fat/user[0].targetFat!), category: "C")
                     }
                     .padding(.bottom, -20)
                     
@@ -94,21 +100,12 @@ struct HomeView: View {
             deleteAllUsers()
             deleteAllCats()
             deleteAllBadges()
-            deleteAllChallenges()
             addSampleData()
-            print(user.count)
-            for challenge in challenges {
-                handleValidateChallenge(challenge: challenge)
+            if let user = user.first {
+                print(user.dailyNutrition[0].calories)
+                print(user.dailyNutrition.count)
             }
-
-        }
-    }
-    
-    func handleValidateChallenge(challenge: Challenge){
-        if let timeObj = Date().withLocalTime(hour: 10, minute: 0) {
-            let foodInfo = FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "egg", nutrition: Nutrition(calories_100g: 50.0))
-            challenge.validate(foodInfo: foodInfo, inputTime: timeObj)
-            print("Is challenge completed? \(challenge.isCompleted)")
+            print(cat.count)
         }
     }
     
@@ -127,12 +124,21 @@ struct HomeView: View {
     func deleteAllCats() {
         for cat in cat {
             modelContext.delete(cat)
+            deleteAllChallenges()
+            addSampleData()
+            print(user.count)
+            for challenge in challenges {
+                handleValidateChallenge(challenge: challenge)
+            }
+
         }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context after deletion: \(error.localizedDescription)")
+    }
+    
+    func handleValidateChallenge(challenge: Challenge){
+        if let timeObj = Date().withLocalTime(hour: 10, minute: 0) {
+            let foodInfo = FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "egg", nutrition: Nutrition(calories_100g: 50.0))
+            challenge.validate(foodInfo: foodInfo, inputTime: timeObj)
+            print("Is challenge completed? \(challenge.isCompleted)")
         }
     }
     
@@ -177,6 +183,7 @@ struct HomeView: View {
         let badge7 = Badge(image: "Can", category: .Foods, price: 10, x: 80, y: 250)
         let badge8 = Badge(image: "Bag", category: .Foods, price: 10, x: 80, y: 250)
         let badge9 = Badge(image: "Milk", category: .Foods, price: 10, x: 80, y: 250)
+
         
         badge1.isUnlocked = true
         badge2.isUnlocked = true
@@ -187,7 +194,7 @@ struct HomeView: View {
         badge7.isUnlocked = true
         badge8.isUnlocked = true
         badge9.isUnlocked = true
-        
+
         modelContext.insert(badge1)
         modelContext.insert(badge2)
         modelContext.insert(badge3)
@@ -208,29 +215,39 @@ struct HomeView: View {
                         targetFat: 45,
                         cat: cat
         )
-        user.coin = 100
         modelContext.insert(user)
         
         user.dailyNutrition.append(DailyNutrition(date: Date(),
-                                                  calories: 1800,
+                                                  calories: 1000,
                                                   protein: 60,
-                                                  carbohydrates: 200,
+                                                  carbohydrates: 5,
                                                   fat: 50)
         )
-        user.dailyNutrition.append(DailyNutrition(date:
-                                                    Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-                                                  calories: 2200,
-                                                  protein: 80,
-                                                  carbohydrates: 250,
-                                                  fat: 70)
-        )
-        user.dailyNutrition.append(DailyNutrition(date:
-                                                    Calendar.current.date(byAdding: .day, value: -2, to: Date())!,
-                                                  calories: 1500,
-                                                  protein: 55,
-                                                  carbohydrates: 150,
-                                                  fat: 45)
-        )
+        
+        user.cat.catWeightCategory = user.getCatWeightCategory()
+//        print("test \(user.cat.catWeightCategory)")
+        
+        
+        user.cat.updateImage(catWeightCategory: user.getCatWeightCategory(), catExpressionCategory: user.getCatExpressionCategory())
+        
+        user.coin = 100
+        
+//        user.dailyNutrition.append(DailyNutrition(date:
+//                                                    Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
+//                                                  calories: 2200,
+//                                                  protein: 80,
+//                                                  carbohydrates: 250,
+//                                                  fat: 70)
+//        )
+//        user.dailyNutrition.append(DailyNutrition(date:
+//                                                    Calendar.current.date(byAdding: .day, value: -2, to: Date())!,
+//                                                  calories: 1500,
+//                                                  protein: 55,
+//                                                  carbohydrates: 150,
+//                                                  fat: 45)
+//        )
+        
+        
     }
 }
 
