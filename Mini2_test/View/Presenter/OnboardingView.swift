@@ -11,21 +11,13 @@ import SwiftData
 struct OnboardingView: View {
     
     @Environment(\.modelContext) var modelContext
-    @State private var test1 = ""
-    @State private var test2 = ""
-    @State private var test3 = ""
+    @State private var fatText = ""
+    @State private var carbText = ""
+    @State private var protText = ""
     @Query var user: [User]
     
     var body: some View {
-        if(!user.isEmpty){
-            VStack{
-                
-            }
-            .task{
-                print("SKIP THIS VIEW")
-            }
-            
-        }
+        
         
             VStack(alignment: .leading){
                 Image("CATLORIES")
@@ -48,28 +40,31 @@ struct OnboardingView: View {
                 }
                 
                 Text("Fat")
-                TextField("Fat in grams", text: $test1)
+                TextField("Fat in grams", text: $fatText)
                     .frame(height: 55)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding([.horizontal], 10)
                     .cornerRadius(16)
                     .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+                    .keyboardType(.numberPad)
 
                 Text("Carbohydrate")
-                TextField("Carbs in grams", text: $test2)
+                TextField("Carbs in grams", text: $carbText)
                     .frame(height: 55)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding([.horizontal], 10)
                     .cornerRadius(16)
                     .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+                    .keyboardType(.numberPad)
                     
                 Text("Protein")
-                TextField("Protein in grams", text: $test3)
+                TextField("Protein in grams", text: $protText)
                     .frame(height: 55)
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding([.horizontal], 10)
                     .cornerRadius(16)
                     .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.gray))
+                    .keyboardType(.numberPad)
                     
                 
                 Button(action: {
@@ -77,22 +72,23 @@ struct OnboardingView: View {
                     var fattarget: Float = 0
                     var prottarget: Float = 0
                     
-                    if let c = NumberFormatter().number(from: test1) {
+                    if let c = NumberFormatter().number(from: fatText) {
                         carbtarget = Float(truncating: c)
                     }
-                    if let f = NumberFormatter().number(from: test2) {
+                    if let f = NumberFormatter().number(from: carbText) {
                         fattarget = Float(truncating: f)
                     }
-                    if let p = NumberFormatter().number(from: test3) {
+                    if let p = NumberFormatter().number(from: protText) {
                         prottarget = Float(truncating: p)
                     }
                     
                     var calories = fattarget*9 + carbtarget*4 + prottarget*4
                     
-                    var user = User(targetCalories: calories, targetCarbohydrates: carbtarget, targetProtein: prottarget, targetFat: fattarget)
-//                    
-                    modelContext.insert(user)
+                    var newUser = User(targetCalories: calories, targetCarbohydrates: carbtarget, targetProtein: prottarget, targetFat: fattarget, cat: Cat(name: "asd", image: "asd", weight: 20))
+//
+                    modelContext.insert(newUser)
                     print("pressed")
+                    print(user)
                 }) {
                     Text("Continue")
                         .font(.title)
