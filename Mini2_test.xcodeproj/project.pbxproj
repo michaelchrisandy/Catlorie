@@ -28,6 +28,7 @@
 		DC6698222C294E1500F44BEF /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6698212C294E1500F44BEF /* Challenge.swift */; };
 		DC6698262C29628B00F44BEF /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6698252C29628B00F44BEF /* Nutrition.swift */; };
 		DC8D03E92C288CAF00C64E5C /* ChallengeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */; };
+		F883FEA92C2C1436003112AF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F883FEA82C2C1436003112AF /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		DC6698212C294E1500F44BEF /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		DC6698252C29628B00F44BEF /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 		DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListItem.swift; sourceTree = "<group>"; };
+		F883FEA82C2C1436003112AF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				DC03E7092C21DAD200E6D022 /* HomeView.swift */,
 				DC03E7182C241E3200E6D022 /* BadgesView.swift */,
 				DC594E882C2AB3DE00C41A50 /* CustomAlertView.swift */,
+				F883FEA82C2C1436003112AF /* OnboardingView.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				DC03E70E2C21E31900E6D022 /* CircularProgressView.swift in Sources */,
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,
 				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
+				F883FEA92C2C1436003112AF /* OnboardingView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
 				DC594E892C2AB3DE00C41A50 /* CustomAlertView.swift in Sources */,
 				DC6698222C294E1500F44BEF /* Challenge.swift in Sources */,
@@ -376,7 +380,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mini2_test/Preview Content\"";
-				DEVELOPMENT_TEAM = Z42WC948D7;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -405,7 +409,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mini2_test/Preview Content\"";
-				DEVELOPMENT_TEAM = Z42WC948D7;
+				DEVELOPMENT_TEAM = 3F3KZHGXN6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

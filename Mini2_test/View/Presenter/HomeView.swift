@@ -198,15 +198,11 @@ struct HomeView: View {
         modelContext.insert(badge8)
         modelContext.insert(badge9)
         
-        let cat = Cat(name: "Hose", image: "cat_fit_normal", weight: 20)
-        modelContext.insert(cat)
-        
         let user = User(name: "Aaron",
                         targetCalories: 2000,
                         targetCarbohydrates: 225,
                         targetProtein: 65,
-                        targetFat: 45,
-                        cat: cat
+                        targetFat: 45
         )
         user.coin = 100
         modelContext.insert(user)
@@ -232,11 +228,6 @@ struct HomeView: View {
                                                   fat: 45)
         )
     }
-}
-
-#Preview {
-    HomeView()
-        .preferredColorScheme(.light)
 }
 
 struct ExtractedView: View {

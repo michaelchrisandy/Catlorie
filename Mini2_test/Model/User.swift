@@ -19,14 +19,12 @@ class User: Identifiable {
     var streak: Int = 0
     var coin: Int = 0
     @Relationship(deleteRule: .cascade) var dailyNutrition = [DailyNutrition]()
-    @Relationship(deleteRule: .cascade) var cat: Cat
     
-    init(id: UUID = UUID(), name: String, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float, cat: Cat) {
+    init(id: UUID = UUID(), name: String? = nil, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float) {
         self.name = name
         self.targetCalories = targetCalories
         self.targetCarbohydrates = targetCarbohydrates
         self.targetProtein = targetProtein
         self.targetFat = targetFat
-        self.cat = cat
     }
 }
