@@ -11,16 +11,50 @@ import SwiftData
 @Model
 class Cat: Identifiable {
     var id: UUID = UUID()
-    var name: String?
+    
+    var catWeightCategory: CatWeightCategory{
+        didSet{
+            updateImage()
+        }
+    }
+    var catExpressionCategory: CatExpressionCategory{
+        didSet{
+            updateImage()
+        }
+    }
+    
     var image: String?
-    var weight: Float?
     @Relationship(deleteRule: .cascade) var badges = [Badge]()
 
-    init(id: UUID = UUID(), name: String, image: String, weight: Float){
-        self.name = name
-        self.image = image
-        self.weight = weight
+    init(id: UUID = UUID(), catWeightCategory: CatWeightCategory, catExpressionCategory: CatExpressionCategory){
+        self.catWeightCategory = catWeightCategory
+        self.catExpressionCategory = catExpressionCategory
+        updateImage(catWeightCategory: catWeightCategory, catExpressionCategory: catExpressionCategory)
     }
+    
+    
+    func updateImage(catWeightCategory: CatWeightCategory, catExpressionCategory: CatExpressionCategory){
+//        print("update image")
+        var imageName : String = ""
+        imageName = String("\(catWeightCategory)\(catExpressionCategory)")
+        print(imageName)
+        
+        self.image = imageName
+
+    }
+    
+}
+
+enum CatWeightCategory: String, Codable, CaseIterable{
+    case skinny
+    case ideal
+    case overweight
+}
+
+enum CatExpressionCategory: String, Codable, CaseIterable{
+    case sad
+    case smile
+    case happy
 }
 
 

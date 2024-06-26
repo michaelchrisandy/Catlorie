@@ -11,8 +11,6 @@ import SwiftData
 @Model
 class Badge: Identifiable {
     var id: UUID = UUID()
-    var name: String
-    var desc: String
     var image: String
     var category: BadgeCategory
     var price: Int
@@ -21,9 +19,7 @@ class Badge: Identifiable {
     var x: Int
     var y: Int
     
-    init(id: UUID = UUID(), name: String, desc: String, image: String, category: BadgeCategory, price: Int, x: Int, y: Int) {
-        self.name = name
-        self.desc = desc
+    init(id: UUID = UUID(), image: String, category: BadgeCategory, price: Int, x: Int, y: Int) {
         self.image = image
         self.category = category
         self.price = price
@@ -33,9 +29,8 @@ class Badge: Identifiable {
 }
 
 enum BadgeCategory: String, Codable, CaseIterable {
-    case hat
-    case tree
-    case necklace
-    case toy
-    case food
+    case Accessories
+    case Background
+    case Foods
+    case Toys
 }

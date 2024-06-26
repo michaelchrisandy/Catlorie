@@ -20,6 +20,8 @@
 		DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */; };
 		DC03E7172C22C91000E6D022 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7162C22C91000E6D022 /* Badge.swift */; };
 		DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7182C241E3200E6D022 /* BadgesView.swift */; };
+		DC594E872C29889D00C41A50 /* FoodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC594E862C29889D00C41A50 /* FoodInfo.swift */; };
+		DC594E892C2AB3DE00C41A50 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC594E882C2AB3DE00C41A50 /* CustomAlertView.swift */; };
 		DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */; };
 		DC60B8C32C25971500558D0E /* ToolBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C22C25971500558D0E /* ToolBarIcon.swift */; };
 		DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C42C27209200558D0E /* CustomButton.swift */; };
@@ -43,6 +45,8 @@
 		DC03E7142C22C8BB00E6D022 /* DailyNutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNutrition.swift; sourceTree = "<group>"; };
 		DC03E7162C22C91000E6D022 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		DC03E7182C241E3200E6D022 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
+		DC594E862C29889D00C41A50 /* FoodInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfo.swift; sourceTree = "<group>"; };
+		DC594E882C2AB3DE00C41A50 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircularProgressView.swift; sourceTree = "<group>"; };
 		DC60B8C22C25971500558D0E /* ToolBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarIcon.swift; sourceTree = "<group>"; };
 		DC60B8C42C27209200558D0E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				DC03E7072C21D18D00E6D022 /* NutritionTargetTextView.swift */,
 				DC03E7092C21DAD200E6D022 /* HomeView.swift */,
 				DC03E7182C241E3200E6D022 /* BadgesView.swift */,
+				DC594E882C2AB3DE00C41A50 /* CustomAlertView.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -140,6 +145,9 @@
 				DC03E7162C22C91000E6D022 /* Badge.swift */,
 				DC6698212C294E1500F44BEF /* Challenge.swift */,
 				DC6698252C29628B00F44BEF /* Nutrition.swift */,
+
+				DC594E862C29889D00C41A50 /* FoodInfo.swift */,
+
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,12 +233,16 @@
 				DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */,
 				DC03E6F42C1AD70900E6D022 /* Mini2_testApp.swift in Sources */,
 				DC03E70A2C21DAD200E6D022 /* HomeView.swift in Sources */,
+				DC594E872C29889D00C41A50 /* FoodInfo.swift in Sources */,
 				DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */,
 				DC03E7132C22C87100E6D022 /* Cat.swift in Sources */,
 				DC03E70E2C21E31900E6D022 /* CircularProgressView.swift in Sources */,
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,
 				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
+
+				DC594E892C2AB3DE00C41A50 /* CustomAlertView.swift in Sources */,
+
 				DC6698222C294E1500F44BEF /* Challenge.swift in Sources */,
 				DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */,
 				DC6698262C29628B00F44BEF /* Nutrition.swift in Sources */,

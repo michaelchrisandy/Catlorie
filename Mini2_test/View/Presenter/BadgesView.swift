@@ -6,16 +6,32 @@ struct BadgesView: View {
     @Query var user: [User]
     @Query var badges: [Badge]
     @Query var cat: [Cat]
+    
     let rows = [GridItem(.fixed(80))]
-    @State private var currentCategory: BadgeCategory = .hat
+    
+    @State private var currentCategory: BadgeCategory = .Accessories
     @State private var selectedBadge: Badge? = nil
+    
+    private var buttonText: String {
+        guard let selectedBadge = selectedBadge else { return "Select a Badge" }
+        return selectedBadge.isUnlocked ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
+    }
+    
+    private var customAlertView: some View {
+        CustomAlertView(title: "Not Enough Coins!", message: alertMessage, buttonText: "OK") {
+            showAlert = false
+        }
+    }
+    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack{
                     Spacer()
-                    ToolBarIcon(text: "100", image: "dollarsign.circle", color: "green")
+                    ToolBarIcon(text: "\(user[0].coin)", image: "dollarsign.circle", color: "green")
                 }
                 Text("Badges")
                     .font(.largeTitle)
@@ -27,16 +43,20 @@ struct BadgesView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
-                        .offset(x: 20)
+//                        .offset(x: 20)
                         .padding(.vertical, 50)
                     
                     if let cat = user.first?.cat {
                         ForEach(cat.badges) { badge in
-                            if badge.category == .hat {
+                            if badge.category == .Background {
                                 Image(badge.image)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 120)
+                                    .frame(width: 160)
+                                    .position(x: CGFloat(badge.x), y: CGFloat(badge.y))
+                                    .zIndex(-1)
+                            } else {
+                                Image(badge.image)
                                     .position(x: CGFloat(badge.x), y: CGFloat(badge.y))
                             }
                         }
@@ -98,9 +118,7 @@ struct BadgesView: View {
                     }
                     
                     Button{
-                        guard let selectedBadge = selectedBadge else 
-                        { return }
-                        assignBadgeToCat(selectedBadge)
+                        handleBadgeButton()
                     }label: {
                         CustomButton(text: buttonText)
                             .padding(.top, 20)
@@ -111,12 +129,35 @@ struct BadgesView: View {
             }
             .padding()
             .padding(.horizontal, 20)
+            .background(
+                Color.black.opacity(showAlert ? 0.3 : 0)
+                    .edgesIgnoringSafeArea(.all)
+            )
+            .overlay(
+                showAlert ? AnyView(customAlertView) : AnyView(EmptyView())
+            )
         }
     }
     
-    private var buttonText: String {
-        guard let selectedBadge = selectedBadge else { return "Select a Badge" }
-        return selectedBadge.isUnlocked ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
+    private func handleBadgeButton(){
+        guard let selectedBadge = selectedBadge else
+        { return }
+        
+        if selectedBadge.isUnlocked{
+            assignBadgeToCat(selectedBadge)
+        } else {
+            unlockBadge(badge: selectedBadge)
+        }
+    }
+    
+    private func unlockBadge(badge: Badge){
+        if user[0].coin >= badge.price {
+            badge.isUnlocked = true
+            user[0].coin -= badge.price
+        } else {
+            alertMessage = "You need \(badge.price - user[0].coin) more coins to buy this badge."
+            showAlert = true
+        }
     }
     
     private func previousCategory() {
@@ -159,3 +200,4 @@ struct BadgesView: View {
 #Preview {
     BadgesView()
 }
+
