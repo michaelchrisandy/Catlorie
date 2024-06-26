@@ -21,7 +21,7 @@ class User: Identifiable {
     @Relationship(deleteRule: .cascade) var dailyNutrition = [DailyNutrition]()
     @Relationship(deleteRule: .cascade) var cat: Cat
     
-    init(id: UUID = UUID(), name: String, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float) {
+    init(id: UUID = UUID(), name: String? = nil, targetCalories: Float, targetCarbohydrates: Float, targetProtein: Float, targetFat: Float) {
         self.name = name
         self.targetCalories = targetCalories
         self.targetCarbohydrates = targetCarbohydrates
