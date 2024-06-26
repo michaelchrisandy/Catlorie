@@ -16,9 +16,9 @@ struct HomeView: View {
     @Query var cat: [Cat]
     @Query var challenges: [Challenge]
     @State private var progress: Float = 0.5
-
     @State private var showSheet = false
     @State private var completedChallenge: Challenge? = nil
+    
     var body: some View {
         
         NavigationStack {
@@ -228,7 +228,6 @@ struct HomeView: View {
         )
         
         user.cat.catWeightCategory = user.getCatWeightCategory()
-        //        print("test \(user.cat.catWeightCategory)")
         
         
         user.cat.updateImage(catWeightCategory: user.getCatWeightCategory(), catExpressionCategory: user.getCatExpressionCategory())
