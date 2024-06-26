@@ -197,6 +197,7 @@ struct HomeView: View {
         badge7.isUnlocked = true
         badge8.isUnlocked = true
         badge9.isUnlocked = true
+        badge11.isUnlocked = true
         
         modelContext.insert(badge1)
         modelContext.insert(badge2)
