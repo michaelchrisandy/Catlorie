@@ -43,7 +43,7 @@ struct BadgesView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
-                        .offset(x: 20)
+//                        .offset(x: 20)
                         .padding(.vertical, 50)
                     
                     if let cat = user.first?.cat {

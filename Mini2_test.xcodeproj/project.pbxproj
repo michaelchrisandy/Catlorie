@@ -145,7 +145,9 @@
 				DC03E7162C22C91000E6D022 /* Badge.swift */,
 				DC6698212C294E1500F44BEF /* Challenge.swift */,
 				DC6698252C29628B00F44BEF /* Nutrition.swift */,
+
 				DC594E862C29889D00C41A50 /* FoodInfo.swift */,
+
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,7 +240,9 @@
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,
 				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
+
 				DC594E892C2AB3DE00C41A50 /* CustomAlertView.swift in Sources */,
+
 				DC6698222C294E1500F44BEF /* Challenge.swift in Sources */,
 				DC03E7152C22C8BB00E6D022 /* DailyNutrition.swift in Sources */,
 				DC6698262C29628B00F44BEF /* Nutrition.swift in Sources */,
