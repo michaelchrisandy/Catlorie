@@ -119,30 +119,6 @@ struct HomeView: View {
         }
     }
     
-    func deleteAllUsers() {
-        for user in user {
-            modelContext.delete(user)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context after deletion: \(error.localizedDescription)")
-        }
-    }
-    
-    func deleteAllCats() {
-        for cat in cat {
-            modelContext.delete(cat)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context after deletion: \(error.localizedDescription)")
-        }
-    }
-    
     func deleteAllBadges() {
         for badge in badges {
             modelContext.delete(badge)
