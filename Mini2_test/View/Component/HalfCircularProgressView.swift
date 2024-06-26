@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HalfCircularProgressView: View {
-    @Binding var percentage: Float
+    var percentage: Double
     
     var body: some View {
         ZStack {
