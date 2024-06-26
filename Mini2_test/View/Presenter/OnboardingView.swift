@@ -84,7 +84,7 @@ struct OnboardingView: View {
                     
                     var calories = fattarget*9 + carbtarget*4 + prottarget*4
                     
-                    var newUser = User(targetCalories: calories, targetCarbohydrates: carbtarget, targetProtein: prottarget, targetFat: fattarget, cat: Cat(name: "asd", image: "asd", weight: 20))
+                    var newUser = User(targetCalories: calories, targetCarbohydrates: carbtarget, targetProtein: prottarget, targetFat: fattarget)
 //
                     modelContext.insert(newUser)
                     print("pressed")
