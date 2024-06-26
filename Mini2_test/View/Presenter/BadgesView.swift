@@ -9,12 +9,18 @@ struct BadgesView: View {
     
     let rows = [GridItem(.fixed(80))]
     
-    @State private var currentCategory: BadgeCategory = .hat
+    @State private var currentCategory: BadgeCategory = .Accessories
     @State private var selectedBadge: Badge? = nil
     
     private var buttonText: String {
         guard let selectedBadge = selectedBadge else { return "Select a Badge" }
         return selectedBadge.isUnlocked ? "Wear This" : "Buy With \(selectedBadge.price) Coins"
+    }
+    
+    private var customAlertView: some View {
+        CustomAlertView(title: "Not Enough Coins!", message: alertMessage, buttonText: "OK") {
+            showAlert = false
+        }
     }
     
     @State private var showAlert = false
@@ -42,11 +48,15 @@ struct BadgesView: View {
                     
                     if let cat = user.first?.cat {
                         ForEach(cat.badges) { badge in
-                            if badge.category == .hat {
+                            if badge.category == .Background {
                                 Image(badge.image)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 120)
+                                    .frame(width: 160)
+                                    .position(x: CGFloat(badge.x), y: CGFloat(badge.y))
+                                    .zIndex(-1)
+                            } else {
+                                Image(badge.image)
                                     .position(x: CGFloat(badge.x), y: CGFloat(badge.y))
                             }
                         }
@@ -108,14 +118,7 @@ struct BadgesView: View {
                     }
                     
                     Button{
-                        guard let selectedBadge = selectedBadge else
-                        { return }
-                        
-                        if selectedBadge.isUnlocked{
-                            assignBadgeToCat(selectedBadge)
-                        } else {
-                            buyBadge(badge: selectedBadge)
-                        }
+                        handleBadgeButton()
                     }label: {
                         CustomButton(text: buttonText)
                             .padding(.top, 20)
@@ -136,13 +139,18 @@ struct BadgesView: View {
         }
     }
     
-    private var customAlertView: some View {
-        CustomAlertView(title: "Not Enough Coins!", message: alertMessage, buttonText: "OK") {
-            showAlert = false
+    private func handleBadgeButton(){
+        guard let selectedBadge = selectedBadge else
+        { return }
+        
+        if selectedBadge.isUnlocked{
+            assignBadgeToCat(selectedBadge)
+        } else {
+            unlockBadge(badge: selectedBadge)
         }
     }
     
-    private func buyBadge(badge: Badge){
+    private func unlockBadge(badge: Badge){
         if user[0].coin >= badge.price {
             badge.isUnlocked = true
             user[0].coin -= badge.price
