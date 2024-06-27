@@ -12,25 +12,9 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Query var user: [User]
     var body: some View {
-        if(user.isEmpty){
-            OnboardingView()
-        }else{
-            VStack {
-                TabView {
-                    HomeView()
-                        .tabItem {
-                            Label("", systemImage: "house.fill")
-                        }
-                    BadgesView()
-                        .tabItem {
-                            Label("", systemImage: "pencil.and.scribble")
-                        }
-                    NutritionTargetTextView()
-                        .tabItem {
-                            Label("", systemImage: "pencil.and.scribble")
-                        }
-                }
-            }
+        
+        VStack {
+            HomeView()
         }
         
     }

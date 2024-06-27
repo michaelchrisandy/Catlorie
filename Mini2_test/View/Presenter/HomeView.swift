@@ -37,12 +37,12 @@ struct HomeView: View {
                     
                     //foreach badge, offset => badge.x badge.y
                     
-                    HStack(spacing: -20){
-                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].protein/user[0].targetProtein!), category: "A")
-                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].carbohydrates/user[0].targetCarbohydrates!), category: "B")
-                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].fat/user[0].targetFat!), category: "C")
+                    HStack(spacing: 50){
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].carbohydrates/user[0].targetCarbohydrates!), category: "Carb", amount: user[0].dailyNutrition[0].carbohydrates)
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].protein/user[0].targetProtein!), category: "Protein", amount: user[0].dailyNutrition[0].protein)
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].fat/user[0].targetFat!), category: "Fat", amount: user[0].dailyNutrition[0].fat)
                     }
-                    .padding(.bottom, -20)
+                    .padding()
                     
                     NavigationLink{
                         
@@ -197,7 +197,7 @@ struct HomeView: View {
         modelContext.insert(user)
         
         user.dailyNutrition.append(DailyNutrition(date: Date(),
-                                                  calories: 1000,
+                                                  calories: 2500,
                                                   protein: 60,
                                                   carbohydrates: 5,
                                                   fat: 50)
