@@ -11,6 +11,7 @@ struct ChallengeListItem: View {
     
     var challengeCount, reward: Int
     var challengeTitle: String
+    var isCompleted: Bool
     
     var body: some View {
         ZStack{
@@ -20,8 +21,13 @@ struct ChallengeListItem: View {
                 .frame(width: 220, height: 85)
             
             VStack(alignment: .leading){
-                Text("Challenge \(challengeCount)")
-                    .opacity(0.6)
+                HStack {
+                    Text("Challenge \(challengeCount)")
+                        .opacity(0.6)
+                    
+                    Image(systemName: isCompleted ? "checkmark.circle" : "")
+                        .padding(.leading, 50)
+                }
                 Text(challengeTitle)
                 Text("+ \(reward) coins")
                     .font(.callout)
@@ -36,5 +42,5 @@ struct ChallengeListItem: View {
 }
 
 #Preview {
-    ChallengeListItem(challengeCount: 1, reward: 10, challengeTitle: "Drink Milk")
+    ChallengeListItem(challengeCount: 1, reward: 10, challengeTitle: "Drink Milk", isCompleted: true)
 }

@@ -22,6 +22,11 @@
 		DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E7182C241E3200E6D022 /* BadgesView.swift */; };
 		DC594E872C29889D00C41A50 /* FoodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC594E862C29889D00C41A50 /* FoodInfo.swift */; };
 		DC594E892C2AB3DE00C41A50 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC594E882C2AB3DE00C41A50 /* CustomAlertView.swift */; };
+		DC594E922C2C671A00C41A50 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = DC594E912C2C671A00C41A50 /* Lottie */; };
+		DC594E942C2C67AB00C41A50 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC594E932C2C67AB00C41A50 /* LottieView.swift */; };
+		DC594E9C2C2C6C2200C41A50 /* Confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = DC594E9B2C2C6C2200C41A50 /* Confetti.json */; };
+		DC594E9E2C2C6F2B00C41A50 /* ChallengeCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC594E9D2C2C6F2B00C41A50 /* ChallengeCompletedView.swift */; };
+		DC594EA02C2C739700C41A50 /* CatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC594E9F2C2C739700C41A50 /* CatImageView.swift */; };
 		DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */; };
 		DC60B8C32C25971500558D0E /* ToolBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C22C25971500558D0E /* ToolBarIcon.swift */; };
 		DC60B8C52C27209200558D0E /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC60B8C42C27209200558D0E /* CustomButton.swift */; };
@@ -53,6 +58,10 @@
 		DC03E7182C241E3200E6D022 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		DC594E862C29889D00C41A50 /* FoodInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfo.swift; sourceTree = "<group>"; };
 		DC594E882C2AB3DE00C41A50 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		DC594E932C2C67AB00C41A50 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		DC594E9B2C2C6C2200C41A50 /* Confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Confetti.json; sourceTree = "<group>"; };
+		DC594E9D2C2C6F2B00C41A50 /* ChallengeCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCompletedView.swift; sourceTree = "<group>"; };
+		DC594E9F2C2C739700C41A50 /* CatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageView.swift; sourceTree = "<group>"; };
 		DC60B8C02C258AD500558D0E /* HalfCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircularProgressView.swift; sourceTree = "<group>"; };
 		DC60B8C22C25971500558D0E /* ToolBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarIcon.swift; sourceTree = "<group>"; };
 		DC60B8C42C27209200558D0E /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -72,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC594E922C2C671A00C41A50 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +132,7 @@
 				F883FEAD2C2C3059003112AF /* CameraView.swift */,
 				F883FEAF2C2C3059003112AF /* DataModel.swift */,
 				F883FEAC2C2C3059003112AF /* ViewfinderView.swift */,
+				DC594E972C2C695800C41A50 /* LottieFiles */,
 				DC03E70C2C21E2E800E6D022 /* Component */,
 				DC03E70B2C21E2D500E6D022 /* Presenter */,
 			);
@@ -138,6 +149,8 @@
 				DC03E7182C241E3200E6D022 /* BadgesView.swift */,
 				DC594E882C2AB3DE00C41A50 /* CustomAlertView.swift */,
 				F883FEA82C2C1436003112AF /* OnboardingView.swift */,
+				DC594E932C2C67AB00C41A50 /* LottieView.swift */,
+				DC594E9D2C2C6F2B00C41A50 /* ChallengeCompletedView.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -150,6 +163,7 @@
 				DC60B8C22C25971500558D0E /* ToolBarIcon.swift */,
 				DC60B8C42C27209200558D0E /* CustomButton.swift */,
 				DC8D03E82C288CAF00C64E5C /* ChallengeListItem.swift */,
+				DC594E9F2C2C739700C41A50 /* CatImageView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -166,6 +180,14 @@
 				DC594E862C29889D00C41A50 /* FoodInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC594E972C2C695800C41A50 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				DC594E9B2C2C6C2200C41A50 /* Confetti.json */,
+			);
+			path = LottieFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +207,7 @@
 			);
 			name = Mini2_test;
 			packageProductDependencies = (
+				DC594E912C2C671A00C41A50 /* Lottie */,
 			);
 			productName = Mini2_test;
 			productReference = DC03E6F02C1AD70900E6D022 /* Mini2_test.app */;
@@ -215,6 +238,7 @@
 			);
 			mainGroup = DC03E6E72C1AD70900E6D022;
 			packageReferences = (
+				DC594E902C2C671A00C41A50 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = DC03E6F12C1AD70900E6D022 /* Products */;
 			projectDirPath = "";
@@ -230,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC594E9C2C2C6C2200C41A50 /* Confetti.json in Resources */,
 				DC03E6FB2C1AD70A00E6D022 /* Preview Assets.xcassets in Resources */,
 				DC03E6F82C1AD70A00E6D022 /* Assets.xcassets in Resources */,
 			);
@@ -255,10 +280,13 @@
 				DC594E872C29889D00C41A50 /* FoodInfo.swift in Sources */,
 				DC60B8C12C258AD500558D0E /* HalfCircularProgressView.swift in Sources */,
 				DC03E7132C22C87100E6D022 /* Cat.swift in Sources */,
+				DC594EA02C2C739700C41A50 /* CatImageView.swift in Sources */,
 				DC03E70E2C21E31900E6D022 /* CircularProgressView.swift in Sources */,
+				DC594E942C2C67AB00C41A50 /* LottieView.swift in Sources */,
 				DC03E7082C21D18D00E6D022 /* NutritionTargetTextView.swift in Sources */,
 				DC03E7192C241E3200E6D022 /* BadgesView.swift in Sources */,
 				F883FEB12C2C3059003112AF /* ViewfinderView.swift in Sources */,
+				DC594E9E2C2C6F2B00C41A50 /* ChallengeCompletedView.swift in Sources */,
 				F883FEA92C2C1436003112AF /* OnboardingView.swift in Sources */,
 				DC03E7112C22C4B500E6D022 /* User.swift in Sources */,
 				DC594E892C2AB3DE00C41A50 /* CustomAlertView.swift in Sources */,
@@ -474,6 +502,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC594E902C2C671A00C41A50 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC594E912C2C671A00C41A50 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC594E902C2C671A00C41A50 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC03E6E82C1AD70900E6D022 /* Project object */;
 }

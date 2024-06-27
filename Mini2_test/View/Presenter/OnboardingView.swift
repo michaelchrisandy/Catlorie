@@ -86,7 +86,6 @@ struct OnboardingView: View {
                     
                     var newUser = User(targetCalories: calories, targetCarbohydrates: carbtarget, targetProtein: prottarget, targetFat: fattarget)
                     
-                    
                     newUser.dailyNutrition.append(DailyNutrition(date: Date(),
                                                               calories: 1000,
                                                               protein: 60,
