@@ -38,29 +38,8 @@ struct BadgesView: View {
                     .fontWeight(.bold)
                     .padding(5)
                 
-                ZStack {
-                    Image(cat[0].image ?? "cat_fit_normal")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200)
-//                        .offset(x: 20)
-                        .padding(.vertical, 50)
-                    
-                    if let cat = user.first?.cat {
-                        ForEach(cat.badges) { badge in
-                            if badge.category == .Background {
-                                Image(badge.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 160)
-                                    .position(x: CGFloat(badge.x), y: CGFloat(badge.y))
-                                    .zIndex(-1)
-                            } else {
-                                Image(badge.image)
-                                    .position(x: CGFloat(badge.x), y: CGFloat(badge.y))
-                            }
-                        }
-                    }
+                if let cat = user.first?.cat {
+                    CatImageView(cat: cat)
                 }
                 
                 VStack {
@@ -200,4 +179,3 @@ struct BadgesView: View {
 #Preview {
     BadgesView()
 }
-
