@@ -93,11 +93,7 @@ struct HomeView: View {
             }
         }
         .onAppear{
-            deleteAllUsers()
-            deleteAllCats()
-            deleteAllBadges()
-            deleteAllChallenges()
-            addSampleData()
+            
             if let user = user.first {
                 print(user.dailyNutrition[0].calories)
                 print(user.dailyNutrition.count)
@@ -105,7 +101,6 @@ struct HomeView: View {
             print(cat.count)
             
             for challenge in challenges {
-                challenge.validate(foodInfo: FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "Apple Cake", nutrition: Nutrition()))
                 if challenge.isCompleted {
                     completedChallenge = challenge
                     showSheet = true
@@ -117,109 +112,6 @@ struct HomeView: View {
                 ChallengeCompletedView(cat: cat[0], challenge: challenge)
             }
         }
-    }
-    
-    func deleteAllBadges() {
-        for badge in badges {
-            modelContext.delete(badge)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context after deletion: \(error.localizedDescription)")
-        }
-    }
-    
-    func deleteAllChallenges() {
-        for c in challenges {
-            modelContext.delete(c)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context after deletion: \(error.localizedDescription)")
-        }
-    }
-    
-    func addSampleData(){
-        modelContext.insert(Challenge(title: "Drink Milk Today!", reward: 10, foodObj: "milk"))
-        if let timeObj = Date().withLocalTime(hour: 10, minute: 0) {
-            modelContext.insert(Challenge(title: "Eat Egg Before 10 am", reward: 20, foodObj: "egg", timeObj: timeObj))
-            print(timeObj)
-        }
-        modelContext.insert(Challenge(title: "Eat an Apple Today!", reward: 10, foodObj: "apple"))
-        
-        let badge1 = Badge(image: "Mouse", category: .Toys, price: 10, x: 265, y: 250)
-        let badge2 = Badge(image: "Ball", category: .Toys, price: 10, x: 265, y: 250)
-        let badge3 = Badge(image: "Stick", category: .Toys, price: 10, x: 265, y: 250)
-        let badge4 = Badge(image: "Home", category: .Background, price: 10, x: 100, y: 120)
-        let badge5 = Badge(image: "Bed", category: .Background, price: 10, x: 100, y: 120)
-        let badge6 = Badge(image: "Aquarium", category: .Background, price: 10, x: 100, y: 120)
-        let badge7 = Badge(image: "Can", category: .Foods, price: 10, x: 80, y: 250)
-        let badge8 = Badge(image: "Bag", category: .Foods, price: 10, x: 80, y: 250)
-        let badge9 = Badge(image: "Milk", category: .Foods, price: 10, x: 80, y: 250)
-        let badge10 = Badge(image: "Hat", category: .Accessories, price: 10, x: 160, y: 65)
-        let badge11 = Badge(image: "Glasses", category: .Accessories, price: 10, x: 160, y: 110)
-        let badge12 = Badge(image: "Collar", category: .Accessories, price: 10, x: 160, y: 175)
-
-        modelContext.insert(badge1)
-        modelContext.insert(badge2)
-        modelContext.insert(badge3)
-        modelContext.insert(badge4)
-        modelContext.insert(badge5)
-        modelContext.insert(badge6)
-        modelContext.insert(badge7)
-        modelContext.insert(badge8)
-        modelContext.insert(badge9)
-        modelContext.insert(badge10)
-        modelContext.insert(badge11)
-        modelContext.insert(badge12)
-        
-        let user = User(name: "Aaron",
-                        targetCalories: 2000,
-                        targetCarbohydrates: 225,
-                        targetProtein: 65,
-                        targetFat: 45
-        )
-        modelContext.insert(user)
-        
-        user.dailyNutrition.append(DailyNutrition(date: Date(),
-                                                  calories: 2500,
-                                                  protein: 60,
-                                                  carbohydrates: 5,
-                                                  fat: 50)
-        )
-        
-        user.cat.catWeightCategory = user.getCatWeightCategory()
-        
-        
-        user.cat.updateImage(catWeightCategory: user.getCatWeightCategory(), catExpressionCategory: user.getCatExpressionCategory())
-        
-        user.coin = 100
-        
-        user.cat.badges.append(badge11)
-        user.cat.badges.append(badge1)
-        user.cat.badges.append(badge4)
-        user.cat.badges.append(badge9)
-        
-        //        user.dailyNutrition.append(DailyNutrition(date:
-        //                                                    Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-        //                                                  calories: 2200,
-        //                                                  protein: 80,
-        //                                                  carbohydrates: 250,
-        //                                                  fat: 70)
-        //        )
-        //        user.dailyNutrition.append(DailyNutrition(date:
-        //                                                    Calendar.current.date(byAdding: .day, value: -2, to: Date())!,
-        //                                                  calories: 1500,
-        //                                                  protein: 55,
-        //                                                  carbohydrates: 150,
-        //                                                  fat: 45)
-        //        )
-        
-        
     }
 }
 

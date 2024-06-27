@@ -11,6 +11,7 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Query var user: [User]
+    
     var body: some View {
         if(user.isEmpty){
             OnboardingView()

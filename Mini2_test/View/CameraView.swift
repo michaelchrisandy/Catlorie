@@ -140,18 +140,15 @@ struct CameraView: View {
                     
                     Button(action: {
                         // Handle submit action here
-                        print("Submitted: \(model.textInput1), \(model.textInput2), \(model.textInput3)")
-                        print("\(user[0].dailyNutrition.last?.calories)")
+                        
                         user[0].dailyNutrition.last?.calories += Float(model.calories)
                         user[0].dailyNutrition.last?.carbohydrates += Float(model.carbo)
                         user[0].dailyNutrition.last?.fat += Float(model.fat)
                         user[0].dailyNutrition.last?.protein += Float(model.protein)
-                        print("\(user[0].dailyNutrition.last?.calories)")
-                        if let curFoodInfo: FoodInfo = model.analysis?.items[0].food[0].food_info{
-                            print("CHECKING CHALLENGES")
-                            challenges.forEach { challenge in
-                                challenge.validate(foodInfo: curFoodInfo, inputTime: Date.now)
-                            }
+                        
+                        //masi pake dummy
+                        for challenge in challenges {
+                            challenge.validate(foodInfo: FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "", nutrition: Nutrition()))
                         }
                         
                         showingBottomSheet = false

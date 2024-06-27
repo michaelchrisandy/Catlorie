@@ -19,9 +19,8 @@ class Badge: Identifiable {
     var x: Int
     var y: Int
     
-    init(id: UUID = UUID(), name: String, desc: String, image: String, category: BadgeCategory, price: Int, x: Int, y: Int) {
-        self.name = name
-        self.desc = desc
+    init(id: UUID = UUID(), image: String, category: BadgeCategory, price: Int, x: Int, y: Int) {
+
         self.image = image
         self.category = category
         self.price = price
