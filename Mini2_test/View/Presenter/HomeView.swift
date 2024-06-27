@@ -28,7 +28,7 @@ struct HomeView: View {
                 VStack {
                     ExtractedView()
                     
-                    HalfCircularProgressView(percentage:Double(user[0].dailyNutrition[0].calories/user[0].targetCalories!))
+                    HalfCircularProgressView(target: user[0].targetCalories!, currentCalories: user[0].dailyNutrition[0].calories)
                         .frame(width: 250.0, height: 250.0)
                         .padding()
                         .padding(.bottom, -120)
@@ -106,9 +106,11 @@ struct HomeView: View {
             
             for challenge in challenges {
                 challenge.validate(foodInfo: FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "Apple Cake", nutrition: Nutrition()))
-                if challenge.isCompleted {
+                if challenge.isCompleted && !challenge.hasBeenShown{
+                    challenge.hasBeenShown = true
                     completedChallenge = challenge
                     showSheet = true
+                    print("showSheet set to true")
                 }
             }
         }

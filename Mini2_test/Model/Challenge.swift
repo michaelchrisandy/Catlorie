@@ -14,6 +14,7 @@ class Challenge: Identifiable {
     var title: String
     var reward: Int
     var isCompleted = false
+    var hasBeenShown = false
     var foodObj: String?
     var timeObj: Date?
     var nutritionObj: Nutrition?
