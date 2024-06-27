@@ -12,11 +12,14 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     @Query var user: [User]
     var body: some View {
-        
-        VStack {
-            HomeView()
+        if(user.isEmpty){
+            OnboardingView()
         }
-        
+        else{
+            VStack {
+                HomeView()
+            }
+        }
     }
 }
 
