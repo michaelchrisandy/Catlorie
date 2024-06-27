@@ -85,6 +85,21 @@ struct OnboardingView: View {
                     var calories = fattarget*9 + carbtarget*4 + prottarget*4
                     
                     var newUser = User(targetCalories: calories, targetCarbohydrates: carbtarget, targetProtein: prottarget, targetFat: fattarget)
+                    
+                    newUser.dailyNutrition.append(DailyNutrition(date: Date(),
+                                                              calories: 1000,
+                                                              protein: 60,
+                                                              carbohydrates: 5,
+                                                              fat: 50)
+                    )
+                    
+                   // newUser.cat.catWeightCategory = newUser.getCatWeightCategory()
+                // print("test \(user.cat.catWeightCategory)")
+                    
+                    
+                  //  newUser.cat.updateImage(catWeightCategory: newUser.getCatWeightCategory(), catExpressionCategory: newUser.getCatExpressionCategory())
+                    
+                    newUser.coin = 100
 //
                     modelContext.insert(newUser)
                     print("pressed")

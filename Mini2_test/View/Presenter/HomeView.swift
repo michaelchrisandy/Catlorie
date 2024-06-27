@@ -45,7 +45,7 @@ struct HomeView: View {
                     .padding()
                     
                     NavigationLink{
-                        
+                        CameraView()
                     }label: {
                         CustomButton(text: "+ Track eat")
                     }

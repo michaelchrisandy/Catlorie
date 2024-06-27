@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct Mini2_testApp: App {
-    
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
