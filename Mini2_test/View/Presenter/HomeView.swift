@@ -17,16 +17,16 @@ struct HomeView: View {
     @Query var challenges: [Challenge]
     @State private var progress: Float = 0.5
     @State private var showSheet = false
-    @State private var completedChallenge: Challenge? = nil
+    @State private var completedChallenge: Challenge?
     
     var body: some View {
         
         NavigationStack {
             ScrollView {
                 VStack {
-                    ExtractedView()
+                    ExtractedView(coin: user[0].coin)
                     
-                    HalfCircularProgressView(percentage:Double(user[0].dailyNutrition[0].calories/user[0].targetCalories!))
+                    HalfCircularProgressView(target: user[0].targetCalories!, currentCalories: user[0].dailyNutrition[0].calories)
                         .frame(width: 250.0, height: 250.0)
                         .padding()
                         .padding(.bottom, -120)
@@ -45,7 +45,7 @@ struct HomeView: View {
                     .padding()
                     
                     NavigationLink{
-                        CameraView()
+                        CameraView(completedChallenge: $completedChallenge)
                     }label: {
                         CustomButton(text: "+ Track eat")
                     }
@@ -92,30 +92,23 @@ struct HomeView: View {
                 .padding()
             }
         }
-        .onAppear{
-            
-            if let user = user.first {
-                print(user.dailyNutrition[0].calories)
-                print(user.dailyNutrition.count)
-            }
-            print(cat.count)
-            
-            for challenge in challenges {
-                if challenge.isCompleted {
-                    completedChallenge = challenge
-                    showSheet = true
-                }
+        .onChange(of: completedChallenge) { newValue in
+            if let _ = newValue {
+                showSheet = true
             }
         }
         .sheet(isPresented: $showSheet) {
             if let challenge = completedChallenge {
-                ChallengeCompletedView(cat: cat[0], challenge: challenge)
+                ChallengeCompletedView(cat: cat[0], challenge: challenge, hasBadges: !cat[0].badges.isEmpty)
             }
         }
     }
 }
 
 struct ExtractedView: View {
+    
+    var coin: Int
+    
     var body: some View {
         NavigationStack {
             HStack{
@@ -130,7 +123,7 @@ struct ExtractedView: View {
                 NavigationLink{
                     BadgesView()
                 }label: {
-                    ToolBarIcon(text: "100", image: "dollarsign.circle", color: "green")
+                    ToolBarIcon(text: "\(coin)", image: "dollarsign.circle", color: "green")
                 }
             }
             .padding()

@@ -12,6 +12,7 @@ struct ChallengeCompletedView: View {
     
     var cat: Cat
     var challenge: Challenge
+    var hasBadges: Bool
     @State var play = true
     
     @Environment(\.dismiss) var dismiss
@@ -21,7 +22,6 @@ struct ChallengeCompletedView: View {
             VStack {
                 Spacer()
                 VStack(spacing: 10) {
-                    
                     Text("Challenge Completed!")
                         .font(.largeTitle)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -34,7 +34,7 @@ struct ChallengeCompletedView: View {
                         .foregroundColor(Color("CustomOrange"))
                 }
                 .padding(.top, 30)
-                .padding(.bottom, -100)
+                .padding(.bottom, hasBadges ? -100 : 0)
                 
                 CatImageView(cat: cat, customBadgeOffsetX: 20, customBadgeOffsetY: 100)
                 
@@ -50,7 +50,7 @@ struct ChallengeCompletedView: View {
                         .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 }
                 .foregroundStyle(Color("CustomOrange"))
-                .padding(.top, -100)
+                .padding(.top, hasBadges ? -100 : 0)
                 
                 Button(action: {
                     dismiss()

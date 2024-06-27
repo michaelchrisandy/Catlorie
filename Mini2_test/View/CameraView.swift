@@ -18,6 +18,8 @@ struct CameraView: View {
     @State private var sizegeom: CGFloat = 0.0
     @State private var animatedGeom: CGFloat = 0.0
     
+    @Binding var completedChallenge: Challenge?
+    
     private static let barHeightFactor = 0.15
     
     
@@ -148,7 +150,11 @@ struct CameraView: View {
                         
                         //masi pake dummy
                         for challenge in challenges {
-                            challenge.validate(foodInfo: FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "", nutrition: Nutrition()))
+                            challenge.validate(foodInfo: FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "milk", nutrition: Nutrition()))
+                            if challenge.isCompleted {
+                                user[0].coin += challenge.reward
+                                completedChallenge = challenge
+                            }
                         }
                         
                         showingBottomSheet = false

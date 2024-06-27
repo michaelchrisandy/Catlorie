@@ -33,7 +33,7 @@ struct OnboardingView: View {
                     .padding(.top, 35)
                 
                 HStack{
-                    Text("\((fatText as NSString).floatValue*9 + (carbText as NSString).floatValue*4 + (protText as NSString).floatValue*4)")
+                    Text(String(format: "%.0f", (Double(fatText) ?? 0) * 9 + (Double(carbText) ?? 0) * 4 + (Double(protText) ?? 0) * 4))
                         .font(.system(size: 70,weight: .medium, design: .rounded))
                         .foregroundStyle(.orange)
                     Text("Cals")
@@ -82,7 +82,7 @@ struct OnboardingView: View {
                         prottarget = Float(truncating: p)
                     }
                     
-                    var calories = fattarget*9 + carbtarget*4 + prottarget*4
+                    var calories = ((fatText as NSString).floatValue*9 + (carbText as NSString).floatValue*4 + (protText as NSString).floatValue*4)
                     
                     var newUser = User(targetCalories: calories, targetCarbohydrates: carbtarget, targetProtein: prottarget, targetFat: fattarget)
                     
@@ -93,15 +93,10 @@ struct OnboardingView: View {
                                                               fat: 0)
                     )
                     
-                   // newUser.cat.catWeightCategory = newUser.getCatWeightCategory()
-                // print("test \(user.cat.catWeightCategory)")
-                    
-                    
-                  //  newUser.cat.updateImage(catWeightCategory: newUser.getCatWeightCategory(), catExpressionCategory: newUser.getCatExpressionCategory())
-                    
                     newUser.coin = 100
 
                     modelContext.insert(newUser)
+                    print("after inserting user, target calories: \(newUser.targetCalories)")
                     
                     modelContext.insert(Challenge(title: "Drink Milk Today!", reward: 10, foodObj: "milk"))
                     if let timeObj = Date().withLocalTime(hour: 10, minute: 0) {

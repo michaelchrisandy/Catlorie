@@ -30,7 +30,7 @@ struct CircularProgressView: View {
                     .stroke(
                         style: StrokeStyle(lineWidth: 10, lineCap: .round)
                     )
-                    .foregroundStyle(Color("CustomOrange"))
+                    .foregroundStyle(percentage > 1 ? Color.red : Color("CustomOrange"))
                     .frame(width: 60)
                 Text("\(Int(amount)) gr")
             }

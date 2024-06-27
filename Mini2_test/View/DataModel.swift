@@ -45,7 +45,7 @@ final class DataModel: ObservableObject {
     func updateCalories(){
         calories = fat*9 + carbo*4 + protein*4
     }
-    
+
     func getDummyJSON() -> String {
         return """
                     {
