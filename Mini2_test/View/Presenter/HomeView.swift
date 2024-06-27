@@ -15,9 +15,7 @@ struct HomeView: View {
     @Query var badges: [Badge]
     @Query var cat: [Cat]
     @Query var challenges: [Challenge]
-    
     @State private var progress: Float = 0.5
-    
     @State private var showSheet = false
     @State private var completedChallenge: Challenge? = nil
     
@@ -37,12 +35,14 @@ struct HomeView: View {
                         CatImageView(cat: cat, customBadgeOffsetX: 20)
                     }
                     
-                    HStack(spacing: -20){
-                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].protein/user[0].targetProtein!), category: "A")
-                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].carbohydrates/user[0].targetCarbohydrates!), category: "B")
-                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].fat/user[0].targetFat!), category: "C")
+                    //foreach badge, offset => badge.x badge.y
+                    
+                    HStack(spacing: 50){
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].carbohydrates/user[0].targetCarbohydrates!), category: "Carb", amount: user[0].dailyNutrition[0].carbohydrates)
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].protein/user[0].targetProtein!), category: "Protein", amount: user[0].dailyNutrition[0].protein)
+                        CircularProgressView(percentage: Double(user[0].dailyNutrition[0].fat/user[0].targetFat!), category: "Fat", amount: user[0].dailyNutrition[0].fat)
                     }
-                    .padding(.bottom, -20)
+                    .padding()
                     
                     NavigationLink{
                         
@@ -116,30 +116,6 @@ struct HomeView: View {
             if let challenge = completedChallenge {
                 ChallengeCompletedView(cat: cat[0], challenge: challenge)
             }
-        }
-    }
-    
-    func deleteAllUsers() {
-        for user in user {
-            modelContext.delete(user)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context after deletion: \(error.localizedDescription)")
-        }
-    }
-    
-    func deleteAllCats() {
-        for cat in cat {
-            modelContext.delete(cat)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Error saving context after deletion: \(error.localizedDescription)")
         }
     }
     
@@ -221,14 +197,13 @@ struct HomeView: View {
         modelContext.insert(user)
         
         user.dailyNutrition.append(DailyNutrition(date: Date(),
-                                                  calories: 1000,
+                                                  calories: 2500,
                                                   protein: 60,
                                                   carbohydrates: 5,
                                                   fat: 50)
         )
         
         user.cat.catWeightCategory = user.getCatWeightCategory()
-        //        print("test \(user.cat.catWeightCategory)")
         
         
         user.cat.updateImage(catWeightCategory: user.getCatWeightCategory(), catExpressionCategory: user.getCatExpressionCategory())
