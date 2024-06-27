@@ -14,25 +14,12 @@ struct ContentView: View {
     var body: some View {
         if(user.isEmpty){
             OnboardingView()
-        }else{
+        }
+        else{
             VStack {
-                TabView {
-                    HomeView()
-                        .tabItem {
-                            Label("", systemImage: "house.fill")
-                        }
-                    BadgesView()
-                        .tabItem {
-                            Label("", systemImage: "pencil.and.scribble")
-                        }
-                    NutritionTargetTextView()
-                        .tabItem {
-                            Label("", systemImage: "pencil.and.scribble")
-                        }
-                }
+                HomeView()
             }
         }
-        
     }
 }
 
