@@ -116,7 +116,7 @@ struct OnboardingView: View {
                     let badge9 = Badge(image: "Milk", category: .Foods, price: 10, x: 80, y: 250)
                     let badge10 = Badge(image: "Hat", category: .Accessories, price: 10, x: 160, y: 65)
                     let badge11 = Badge(image: "Glasses", category: .Accessories, price: 10, x: 160, y: 110)
-                    let badge12 = Badge(image: "Collar", category: .Accessories, price: 10, x: 160, y: 175)
+                    let badge12 = Badge(image: "Collar", category: .Accessories, price: 10, x: 160, y: 205)
                     
                     modelContext.insert(badge1)
                     modelContext.insert(badge2)

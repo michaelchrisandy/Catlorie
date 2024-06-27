@@ -19,6 +19,7 @@ struct CameraView: View {
     @State private var animatedGeom: CGFloat = 0.0
     
     @Binding var completedChallenge: Challenge?
+    @Binding var completedChallengeCount: Int
     
     private static let barHeightFactor = 0.15
     
@@ -148,10 +149,13 @@ struct CameraView: View {
                         user[0].dailyNutrition.last?.fat += Float(model.fat)
                         user[0].dailyNutrition.last?.protein += Float(model.protein)
                         
+                        user[0].cat.updateImage(catWeightCategory: user[0].getCatWeightCategory(), catExpressionCategory: user[0].getCatExpressionCategory())
+                        
                         //masi pake dummy
                         for challenge in challenges {
                             challenge.validate(foodInfo: FoodInfo(food_id: "", fv_grade: "", g_per_serving: 20, display_name: "milk", nutrition: Nutrition()))
                             if challenge.isCompleted {
+                                completedChallengeCount += 1
                                 user[0].coin += challenge.reward
                                 completedChallenge = challenge
                             }

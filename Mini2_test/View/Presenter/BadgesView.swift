@@ -38,7 +38,7 @@ struct BadgesView: View {
                     .padding(5)
                 
                 if let cat = user.first?.cat {
-                    CatImageView(cat: cat)
+                    CatImageView(cat: cat, customBadgeOffsetY: 10)
                 }
                 
                 VStack {

@@ -18,6 +18,7 @@ struct HomeView: View {
     @State private var progress: Float = 0.5
     @State private var showSheet = false
     @State private var completedChallenge: Challenge?
+    @State private var completedChallengeCount: Int = 0
     
     var body: some View {
         
@@ -32,7 +33,7 @@ struct HomeView: View {
                         .padding(.bottom, -120)
                     
                     if let cat = user.first?.cat {
-                        CatImageView(cat: cat, customBadgeOffsetX: 20)
+                        CatImageView(cat: cat, customBadgeOffsetX: 20, customBadgeOffsetY: 4)
                     }
                     
                     //foreach badge, offset => badge.x badge.y
@@ -45,7 +46,7 @@ struct HomeView: View {
                     .padding()
                     
                     NavigationLink{
-                        CameraView(completedChallenge: $completedChallenge)
+                        CameraView(completedChallenge: $completedChallenge, completedChallengeCount: $completedChallengeCount)
                     }label: {
                         CustomButton(text: "+ Track eat")
                     }
@@ -72,7 +73,7 @@ struct HomeView: View {
                             VStack {
                                 HStack {
                                     Image(systemName: "trophy")
-                                    Text("Complete today’s challenges 0/3")
+                                    Text("Complete today’s challenges \(completedChallengeCount)/3")
                                 }
                                 .foregroundStyle(.gray)
                                 .opacity(0.8)
