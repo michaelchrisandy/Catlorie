@@ -45,7 +45,7 @@ struct HomeView: View {
                     .padding()
                     
                     NavigationLink{
-                        
+                        CameraView()
                     }label: {
                         CustomButton(text: "+ Track eat")
                     }
@@ -163,18 +163,7 @@ struct HomeView: View {
         let badge10 = Badge(image: "Hat", category: .Accessories, price: 10, x: 160, y: 65)
         let badge11 = Badge(image: "Glasses", category: .Accessories, price: 10, x: 160, y: 110)
         let badge12 = Badge(image: "Collar", category: .Accessories, price: 10, x: 160, y: 175)
-        
-        badge1.isUnlocked = true
-        badge2.isUnlocked = true
-        badge3.isUnlocked = true
-        badge4.isUnlocked = true
-        badge5.isUnlocked = true
-        badge6.isUnlocked = true
-        badge7.isUnlocked = true
-        badge8.isUnlocked = true
-        badge9.isUnlocked = true
-        badge11.isUnlocked = true
-        
+
         modelContext.insert(badge1)
         modelContext.insert(badge2)
         modelContext.insert(badge3)
