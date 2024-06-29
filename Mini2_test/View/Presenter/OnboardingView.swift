@@ -72,10 +72,10 @@ struct OnboardingView: View {
                     var fattarget: Float = 0
                     var prottarget: Float = 0
                     
-                    if let c = NumberFormatter().number(from: fatText) {
+                    if let c = NumberFormatter().number(from: carbText) {
                         carbtarget = Float(truncating: c)
                     }
-                    if let f = NumberFormatter().number(from: carbText) {
+                    if let f = NumberFormatter().number(from: fatText) {
                         fattarget = Float(truncating: f)
                     }
                     if let p = NumberFormatter().number(from: protText) {

@@ -813,7 +813,7 @@ final class DataModel: ObservableObject {
         
         
         var request = URLRequest(url: URL(string: "https://vision.foodvisor.io/api/1.0/en/analysis/")!,timeoutInterval: Double.infinity)
-        request.addValue("Api-Key c9KL5odX.53BeYkDkdeuG6KpiBVwJ8ycAYzzGHUE6", forHTTPHeaderField: "Authorization")
+        request.addValue("Api-Key gxFWqPbf.0bc2cJby2xtW3FF9y9bsZbMnu8b6Qi1c", forHTTPHeaderField: "Authorization")
         request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
         request.httpMethod = "POST"
